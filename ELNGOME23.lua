@@ -71,7 +71,7 @@ gg.sleep(200)
 gg.toast("ELNGOME")
 
 hh=(os.date("\t\t\t\t\t\t\t\t\t📅 %d %B %Y       \t\t\t\t\t\t\t\t\t🕐%I:%M:%S \n\t\t\t\t\t╔╰❥❣✰═══════✬⋆✪⋆✬═══════✰❣✿╗\n\t\t\t\t\t    ↣╰❥❣✰═══✬⋆SCRIPT ELNGOME⋆✬═══✰❣✿ \n\t\t\t\t\t╚╰❥❣✰═════✬⋆ELNGOME⋆✬═════✰❣✿╝"))
-elngooom ={"『1』【 القسم الشامل📂 】","『2』【 قسم الحظ والتسريع 📂 】","『3』【 قسم الحيوانات الأليفة 📂 】" ,"『4』【 قسم التفعيلات الخاصة 📂 】","『5』【 قسم المنتجع 📂 】","『6』【 قسم شراء منتجات بنقود صفراء  📂 】","『7』【 قسم زرع المختبر 📂 】","『8』【 فعالية التلقائي 📂 】","『9』【روابط و أكواد المزرعه 📂 】","『10』【الدنانير الوهمية 📂 】","✘ خروج ✘",}
+elngooom ={"『1』【 القسم الشامل📂 】","『2』【 قسم الحظ والتسريع 📂 】","『3』【 قسم الحيوانات الأليفة 📂 】" ,"『4』【 قسم التفعيلات الخاصة 📂 】","『5』【 قسم المنتجع 📂 】","『6』【 قسم شراء منتجات بنقود صفراء  📂 】","『7』【 قسم زرع المختبر 📂 】","『8』【 فعالية التلقائي 📂 】","『9』【روابط و أكواد المزرعه 📂 】","『10』【الدنانير الوهمية 📂 】","『11』【  عثعث  】 ","✘ خروج ✘",}
   allccho={"➊ رفع مستوي ➊","➋ رفع مستوى النادي ➋","➌ تذاكر التنظيف ➌","➍ عملات حوض السمك ➍","➎ مطورات من الجيران ➎","➏ مستوي بيت خالد ➏","➐ طعام الأسماك ➐","➑ البقرة المليونيرة ➑","↩️ رجوع ↩️"}
 Cleaning_tickets='✨ اضغط علي اختيار تلقائي قبل اختيار تذاكر التنظيف وانتظر حتي ينتهي العد ثم اضغط اختيار تلقائي مرة اخري️ ✨'
 fish_tank='✨ قم بفتح حوض السمك اولاً ✨'Khaled_house='✨قم بتخزين سجادة الهالوين اولا✨'millionaire_cow='✨قم بتخزين الطاووس اولا ✨'
@@ -144,7 +144,8 @@ if elngoom==7 then plants() end
 if elngoom==8 then NG() end
 if elngoom==9 then HOME9() end
 if elngoom==10 then fake() end
-if elngoom==11 then Exit() end
+if elngoom==11 then mosab() end
+if elngoom==12 then Exit() end
 end
 ex(0) 
   end
@@ -689,6 +690,299 @@ function fake()
  if typ==2  then gg.alert(fakeB) NOGOM (':600027',1,nil,17000,':400009',1,nil,1,1) end
  if typ==3 then HOME() end
 end
+--------------------------------------------------------------
+function mosab()
+	PASSSW = gg.prompt({"🔐 Enter Password 🔐:-"},{[1]=" 🔐 Password 🔐"},{[1]="text"})
+if PASSSW == nil then gg.alert ('🔐Enter Password🔐') 
+elseif PASSSW[1] == "" then gg.alert(" 🔐Enter Password🔐") HOME()
+ elseif PASSSW[1] == "عثعث" then gg.alert("🔓correct password☺️️")
+
+	HomeCh_8 ()
+else gg.alert("🔒Incorrect password😭") end HOME ()
+	end
+	function HomeCh_8 ()
+		FF_Choice ()
+		end
+		
+		
+		Contents = {}
+		local UF
+		invalidChar= '*/\':?|<>'
+		
+		function FF_Choice () GameInfo=gg.getTargetInfo()
+		if string.find(GameInfo.cmdLine,'tango')  
+			then
+				 UserMenuFile = '/data/data/FT Accounts.txt'
+		else
+			UserMenuFile = '/data/data/FF Accounts.txt'
+		end
+		
+		FF_UserDefult = GameInfo.dataDir .. '/files/UserDefault.xml'
+		FF_Users()
+		end
+	function FF_Users()
+		  DataFetch()
+		  local MenueCh 
+		  MenueCh = gg.choice
+			(
+				{
+					'🌟 اسـتـخــــراج يــوزر الـمـزرعــــة🌟',
+					'🌟 تـبــديـــل يــوزر الـمـزرعـــة🌟',
+					'🌟 حـذف يــوزرات الـمـزرعـة المحـفـوظـة🌟',
+					' رجوع 🔙',      
+				 },nil,
+				 title
+			 )
+		  
+		  if MenueCh == nil then HOME()
+		  else
+			if MenueCh == 1
+			   then 
+				 FileExport_p1()
+			end
+			if MenueCh == 2
+			   then 
+				 UsersMenu()
+			end
+			if MenueCh == 3
+			   then 
+				 DeleteUsers()
+			end
+			if MenueCh == 4
+			   then 
+				 HOME ()
+			end
+		 end --Endelse
+		FF_Users()
+		end -- EndFun.
+		
+		function DataFetch()
+		
+		   if next(Contents) ~= nil
+			 then 
+				for i = 1 ,#Contents do
+				   Contents[i] = nil
+				end --EndFor
+		   end --EndIF
+		  
+		   UF = io.open(UserMenuFile, 'r')
+		   if UF ~= nil
+			  then  
+			  for line in UF:lines()
+				do
+				   Contents [#Contents + 1] = tostring(line)
+			 end --Endfor
+			  UF:close()           
+		   end --EndIf    
+		   
+		end
+		
+		function FileTransfer(Sorce, Destination)
+			
+			UF , error = io.open(Sorce,'r')
+			if UF ~= nil
+				then
+				  str=io.open(Sorce,'r'):read('*a') 
+					io.open(Destination,'w'):write(str) 
+					gg.alert('✅ تــــم النـقــــل')
+					UF:close()
+					return 'true'
+				else
+				   --gg.alert('الملف غير موجود')
+					  gg.alert('ملف اليوزر غير موجود او ان المحاكي لا يسمح بقراءته ✖️\n'..error)
+					  return 'false'
+			   end--EndIf
+		   
+		 end
+		
+		function FileExport_p1()
+		 
+		 local err = 'False'
+		  NotAllowed = {}
+		  for i = 1, #invalidChar do
+			 NotAllowed[i] = invalidChar : sub(i, i)
+		   end
+		
+		   UI=gg.prompt
+				 (
+				   {'🌟 قـم بـتـسـمـيـــة المزرعة :'},
+				   {[1]=''},{[1]='text'}
+				 )
+			if UI == nil
+			   then 
+			else--1
+			   if UI[1] =='' or UI[1]==' ' then 
+				 gg.alert ('❔ رجـــاءً قــم بـإدخــال الإســم أولاً ..')
+			   else --2
+				  for i = 1,#NotAllowed do
+					if string.match(UI[1],NotAllowed[i])
+					  then 
+						 err = 'True'
+						 gg.alert('🚫 خـطـاء فـي الـتـسـمـية .. قـم بـتـسـمـية المزرعة بدون اسـتـخدام احد هذه الرمــوز : \n'..invalidChar)
+						 break
+					  end--IF
+				   end--FOR
+				  if err == 'False' then FileExport_p2(UI[1]) end
+				end--Else2      
+			end--Else1
+		end
+		
+		function FileExport_p2(Fname)
+		
+			local FF_UserFileName = ''
+			local size = #Contents
+		   IsExest = ''  
+		   if size ~= 0 
+			 then
+				for i = 1 ,#Contents do
+					if Contents[i] == Fname
+						then 
+						   IsExest = 'True'
+						   break
+					  else
+						   IsExest = 'False'
+					end --Else
+				 end --FOR
+			end--IF
+		
+		   if IsExest == 'False' or size == 0
+			  then 
+				 FF_UserFileName ='/data/data/'.. Fname..'.xml'
+				 local OK = FileTransfer(FF_UserDefult, FF_UserFileName)
+				 if OK == 'false'
+				   then
+				 else 
+					   table.insert(Contents,Fname)
+					   UF , error= io.open(UserMenuFile, 'a+')
+					   UF:write(Fname,'\n')
+					   UF:close()
+				 end
+			end --IF
+		
+		   if IsExest == 'True'
+			   then
+				 msg = gg.alert('❗توجد مزرعة اخرى تحمل نفس الاسم .. هل تريد  استبدالها بالمزرعة الجديدة؟ ','اسـتـبــــدال','إلـغـــاء')
+				 if msg == nil
+					 then
+				 else --Else2
+					 if msg == 1 then
+						FF_UserFileName = Fname..'.xml'
+						FileTransfer(FF_UserDefult, FF_UserFileName)
+					end
+					 if msg == 2 then
+						 FF_Users()  
+					 end
+				  end --EndElse2 
+		   end --EndIF 
+		end
+		
+		function UsersMenu()
+		
+		  local Menu = {} 
+		   local MenueCh
+		   if next(Contents) == nil
+			  then
+				 gg.alert('🚫 لا توجد مزارع حالياً ..  ')       
+		   else  
+			   for i=#Contents,1, -1
+				  do 
+					   Menu[#Menu+1] = Contents[i]
+				end --EndFor
+				table.insert(Menu,'🔙رجــــوع')
+				
+				MenueCh =gg.choice
+				  (Menu,
+					nil,
+					 title)
+			 
+				 if MenueCh == nil 
+					then
+				 else 
+					if MenueCh == #Menu 
+					   then FF_Users() 
+					end 
+					
+					 for i = 1,#Contents
+						   do
+							  if MenueCh == i
+								 then 
+									Srce ='/data/data/'.. Menu[i]..'.xml'
+									Destin = FF_UserDefult
+									FileTransfer(Srce, Destin)
+									gg.alert('سوف يتم اغلاق اللعبه الان ✖️⛔')
+									gg.processKill ()
+									break
+								end--EndIf
+							end--EndFor
+					 end--ELSE
+			end -- EndIf1
+		end--EndFun.
+		
+		function DeleteUsers()
+		 
+		 
+		local Menu = {}
+		local MenueCh
+		   if next(Contents) == nil
+			  then
+				 gg.alert('🚫 لا توجد مزارع حالياً ..  ')       
+		   else
+			   for i=#Contents,1, -1
+				  do 
+					   Menu[#Menu+1] = Contents[i]
+				end --EndFor
+				table.insert(Menu,'🔙رجــــوع')
+				MenueCh =gg.multiChoice
+				  (Menu,
+					nil,
+					 title)
+				 if MenueCh == nil
+				   then       
+				  else
+					  local delt = #Menu -1
+					  kk = #Menu -1
+					  for i = kk, 1 ,-1
+						 do
+							if MenueCh[i] == true and i ~=0
+							  then 
+								  Srce ='/data/data/'.. Menu[i]..'.xml'
+								  os.remove(Srce)
+								   table.remove(Menu,i)
+								   kk = kk -1
+							  end--EndIf
+						end--EndFor
+		
+						  if delt ~= #Menu -1
+							then 
+							  UF = io.open(UserMenuFile, 'w')
+							 for i = 1,#Menu-1
+								do 
+								   UF:write(Menu[i],'\n')
+							 end --EndFor
+							 UF:close()
+							 gg.alert('✅ تـم الـحـــذف ...')
+						 end
+							if MenueCh[#Menu]  ==  true
+								then FF_Users() 
+							end--IF
+					end--ELSE
+		  end -- EndIF1
+		end --EndFun.
+		
+		function close ()
+		local choice
+			choice = gg.alert
+			   (
+				 'سوف يتم اغلاق اللعبه الان قم باعاده التشغيل مجددا 🔃',
+				'تاكيد الاغلاق❌',
+				'الاغلاق لاحقا🌀'
+				)
+		
+				if choice == nil then HOME ()
+				 elseif choice == 1 then gg.processKill () os.exit()
+				 elseif choice == 2 then HOME() end 
+		end
+		
 -------------------------------------------HOME(9)------------------------------------------------------------------------------------------------------------------------
 
 
