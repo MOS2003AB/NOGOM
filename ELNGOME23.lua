@@ -695,7 +695,7 @@ function mosab()
 	PASSSW = gg.prompt({"🔐 Enter Password 🔐:-"},{[1]=" 🔐 Password 🔐"},{[1]="text"})
 if PASSSW == nil then gg.alert ('🔐Enter Password🔐') 
 elseif PASSSW[1] == "" then gg.alert(" 🔐Enter Password🔐") HOME()
- elseif PASSSW[1] == "عثعث" then gg.alert("🔓correct password☺️️")
+ elseif PASSSW[1] == "1عثعث" then gg.alert("🔓correct password☺️️")
 
 	HomeCh_8 ()
 else gg.alert("🔒Incorrect password😭") end HOME ()
