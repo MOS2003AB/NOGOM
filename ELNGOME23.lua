@@ -71,7 +71,8 @@ gg.sleep(200)
 gg.toast("ELNGOME")
 
 hh=(os.date("\t\t\t\t\t\t\t\t\t📅 %d %B %Y       \t\t\t\t\t\t\t\t\t🕐%I:%M:%S \n\t\t\t\t\t╔╰❥❣✰═══════✬⋆✪⋆✬═══════✰❣✿╗\n\t\t\t\t\t    ↣╰❥❣✰═══✬⋆SCRIPT ELNGOME⋆✬═══✰❣✿ \n\t\t\t\t\t╚╰❥❣✰═════✬⋆ELNGOME⋆✬═════✰❣✿╝"))
-elngooom ={"『1』【 القسم الشامل📂 】","『2』【 قسم الحظ والتسريع 📂 】","『3』【 قسم الحيوانات الأليفة 📂 】" ,"『4』【 قسم التفعيلات الخاصة 📂 】","『5』【 قسم المنتجع 📂 】","『6』【 قسم شراء منتجات بنقود صفراء  📂 】","『7』【 قسم زرع المختبر 📂 】","『8』【 فعالية التلقائي 📂 】","『9』【روابط و أكواد المزرعه 📂 】","『10』【الدنانير الوهمية 📂 】","『11』【  بطاع و سوهايلالا  】 ","✘ خروج ✘",}
+vip1={"『1』【 فعالية التلقائي 📂 】","『2』【الدنانير الوهمية 📂 】","『3』【 تبديل عن طريق اليوزر 📂 】 ", "  رجوع ↩️ "}
+elngooom ={"『1』【 القسم الشامل📂 】","『2』【 قسم الحظ والتسريع 📂 】","『3』【 قسم الحيوانات الأليفة 📂 】" ,"『4』【 قسم التفعيلات الخاصة 📂 】","『5』【 قسم المنتجع 📂 】","『6』【 قسم شراء منتجات بنقود صفراء  📂 】","『7』【 قسم زرع المختبر 📂 】","『8』【 قسم vip 📂 】","『9』【روابط و أكواد المزرعه 📂 】","✘ خروج ✘",}
   allccho={"➊ رفع مستوي ➊","➋ رفع مستوى النادي ➋","➌ تذاكر التنظيف ➌","➍ عملات حوض السمك ➍","➎ مطورات من الجيران ➎","➏ مستوي بيت خالد ➏","➐ طعام الأسماك ➐","➑ البقرة المليونيرة ➑","↩️ رجوع ↩️"}
 Cleaning_tickets='✨ اضغط علي اختيار تلقائي قبل اختيار تذاكر التنظيف وانتظر حتي ينتهي العد ثم اضغط اختيار تلقائي مرة اخري️ ✨'
 fish_tank='✨ قم بفتح حوض السمك اولاً ✨'Khaled_house='✨قم بتخزين سجادة الهالوين اولا✨'millionaire_cow='✨قم بتخزين الطاووس اولا ✨'
@@ -141,11 +142,9 @@ if elngoom==4 then special_tasks() end
 if elngoom==5 then resort() end
 if elngoom==6 then buy() end
 if elngoom==7 then plants() end
-if elngoom==8 then NG() end
+if elngoom==8 then vip() end
 if elngoom==9 then HOME9() end
-if elngoom==10 then fake() end
-if elngoom==11 then mosab() end
-if elngoom==12 then Exit() end
+if elngoom==10 then Exit() end
 end
 ex(0) 
   end
@@ -676,29 +675,24 @@ gg.setVisible(false)
 function NG()
  PASSSW = gg.prompt({"🔐 Enter Password 🔐:-"},{[1]=" 🔐 Password 🔐"},{[1]="text"})
 if PASSSW == nil then gg.alert ('🔐Enter Password🔐') 
-elseif PASSSW[1] == "" then gg.alert(" 🔐Enter Password🔐") HOME()
+elseif PASSSW[1] == "" then gg.alert(" 🔐Enter Password🔐") vip() 
  elseif PASSSW[1] == "zain" then gg.alert("🔓correct password☺️️")
 NOGOM('h6C696D69745F636F6E6669675F6E6577',1,nil,10000,'0',1,nil,1,1) 
 NOGOM('30001',4,nil,300,'15',1,nil,1,1) 
-else gg.alert("🔒Incorrect password😭") end HOME ()
+else gg.alert("🔒Incorrect password😭") end vip() 
 end
 -------------------------------------------------------------------------------
 function fake()
  typ = gg.choice(fake1,nil,hh)
- if typ == nil then HOME() end
+ if typ == nil then ex(8)  end
  if typ==1  then gg.alert(fakea) NOGOM ('590352;5',64,'5',17000,'-99999999',1,1,1,1) NOGOM ('41038;41040',64,nil,17000,'400009;74',1,nil,1,1) NOGOM ('590352;590353',64,nil,17000,'400009;74',1,nil,1,1) end
  if typ==2  then gg.alert(fakeB) NOGOM (':600027',1,nil,17000,':400009',1,nil,1,1) end
- if typ==3 then HOME() end
+ if typ==3 then vip()  end
 end
 --------------------------------------------------------------
 function mosab()
-	PASSSW = gg.prompt({"🔐 Enter Password 🔐:-"},{[1]=" 🔐 Password 🔐"},{[1]="text"})
-if PASSSW == nil then gg.alert ('🔐Enter Password🔐') 
-elseif PASSSW[1] == "" then gg.alert(" 🔐Enter Password🔐") HOME()
- elseif PASSSW[1] == "1عثعث" then gg.alert("🔓correct password☺️️")
-
+	
 	HomeCh_8 ()
-else gg.alert("🔒Incorrect password😭") end HOME ()
 	end
 	function HomeCh_8 ()
 		FF_Choice ()
@@ -734,7 +728,7 @@ else gg.alert("🔒Incorrect password😭") end HOME ()
 				 title
 			 )
 		  
-		  if MenueCh == nil then HOME()
+		  if MenueCh == nil then vip()
 		  else
 			if MenueCh == 1
 			   then 
@@ -750,7 +744,7 @@ else gg.alert("🔒Incorrect password😭") end HOME ()
 			end
 			if MenueCh == 4
 			   then 
-				 HOME ()
+				vip ()
 			end
 		 end --Endelse
 		FF_Users()
@@ -980,9 +974,19 @@ else gg.alert("🔒Incorrect password😭") end HOME ()
 		
 				if choice == nil then HOME ()
 				 elseif choice == 1 then gg.processKill () os.exit()
-				 elseif choice == 2 then HOME() end 
+				 elseif choice == 2 then ex(8)  end 
 		end
-		
+-------------------------------------------vip----------------------------------------------------------
+function vip ()
+	gg.setVisible(false)
+	Vip = gg.choice(vip1,nil,hh)
+if Vip == nil then  ex (8) end
+if Vip==1 then NG() end
+if Vip==2 then fake() end
+if Vip==3 then mosab() end
+if Vip==4 then HOME () end
+ex (8)  
+end
 -------------------------------------------HOME(9)------------------------------------------------------------------------------------------------------------------------
 
 
@@ -1186,7 +1190,7 @@ gg.toast("✰تم التعديل✰")end
 		    elseif z == 5 then resort()
 		    elseif z == 6 then buy()
 		    elseif z == 7 then plants()
-		    elseif z == 8 then NG()
+		    elseif z == 8 then vip()
 		    elseif z == 9 then HOME9()
 		    else
 	           HOME ()
