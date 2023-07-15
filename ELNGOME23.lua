@@ -685,7 +685,7 @@ function fake()
 --	gg.alert("⛔️ سيتم اعادة فتحها قريبا ⛔️")
  typ = gg.choice(fake1,nil,hh)
  if typ == nil then ex(8)  end
- if typ==1  then gg.alert(fakea) NOGOM ('590352;5',64,'5',17000,'-99999999',1,1,1,1) NOGOM ('41038;41040',64,nil,17000,'400009;74',1,nil,1,1) NOGOM ('590352;590353',64,nil,17000,'400009;74',1,nil,1,1) end
+ if typ==1  then gg.alert(fakea) NOGOM ('590352;5',64,'5',17000,'-1000000',1,1,1,1) NOGOM ('41038;41040',64,nil,17000,'400009;74',1,nil,1,1) NOGOM ('590352;590353',64,nil,17000,'400009;74',1,nil,1,1) end
  if typ==2  then gg.alert(fakeB) NOGOM (':600027',1,nil,17000,':400009',1,nil,1,1) end
  if typ==3 then vip()  end
 end
