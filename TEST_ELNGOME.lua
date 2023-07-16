@@ -10,6 +10,22 @@
 	if E == 1 then gg.editAll(edt, type) end
 	if C == 1 then gg.clearResults() end
 end
+function maruko(Link,Path,FiLe,on,del)
+	gg.setVisible(false)
+    FullPath = Path..FiLe
+    if on == 1 then 
+      get_file = (gg.makeRequest(Link).content)
+	  file , error= io.open(FullPath, 'w')
+	   if file == nil then 
+          gg.alert('هذه الميزه غير متوفره علي هذا المحاكي بسبب عدم توافر بعض الاذونات  ⛔\n:'.. error)HOME ()
+       else
+    	   file:write(get_file)
+		   io.close(file)
+		end
+	end
+
+	if del == 1 then os.remove(FullPath) end
+end
 ------------------------------------------HOME----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 hh=(os.date("\t\t\t\t\t\t\t\t\t📅 %d %B %Y       \t\t\t\t\t\t\t\t\t🕐%I:%M:%S \n\t\t\t\t\t╔╰❥❣✰═══════✬⋆✪⋆✬═══════✰❣✿╗\n\t\t\t\t\t    ↣╰❥❣✰═══✬⋆SCRIPT ELNGOME⋆✬═══✰❣✿ \n\t\t\t\t\t╚╰❥❣✰═════✬⋆ELNGOME⋆✬═════✰❣✿╝"))
 vip1={"『1』【 فعالية التلقائي 📂 】","『2』【الدنانير الوهمية 📂 】","『3』【 تبديل عن طريق اليوزر 📂 】 ", "  رجوع ↩️ "}
@@ -332,13 +348,19 @@ end
 
 -------------الغاء تحميل المصانع
 function factories()
-if file_exists("/data/data/com.funplus.familyfarm/Resources/scripts/production_house/controller.lua") then 
-getalldata= (gg.makeRequest('https://drive.google.com/uc?export=download&id=1mp-cQr2Pe8PgXYoRSwKNBm4r16Gr0snc').content)
-	file = io.open("/data/data/com.funplus.familyfarm/Resources/scripts/production_house/controller.lua", "wb")
-	file:write(getalldata)
-	io.close(file)
-	colse () 
+link_P = {
+					Download..'11CikdmoRT7ZBl_yvNuos--GbNd2_kEjO',
+					Download..'1MOw_vXGE_WOtUh4TXsiwJLoyY30fyqkU'
+				}
+ProudDir = GameInfo.dataDir..'/Resources/scripts/production_house/'
+ProudFiles = {'controller.lua','materialCell.lua'}
+copy = 0
+for i = 1,#link_P do
+  maruko(link_P[i],ProudDir,ProudFiles[i],1,nil)
+  copy = copy + 50
+  gg.toast("جــارِ نـقــل المـلــف.."..copy..'%')
 end
+close ()
 end
 
 
