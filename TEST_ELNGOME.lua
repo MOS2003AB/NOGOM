@@ -349,8 +349,8 @@ end
 -------------الغاء تحميل المصانع
 function factories()
 link_P = {
-					Download..'11CikdmoRT7ZBl_yvNuos--GbNd2_kEjO',
-					Download..'1MOw_vXGE_WOtUh4TXsiwJLoyY30fyqkU'
+					Download..'https://drive.google.com/uc?export=download&id=11CikdmoRT7ZBl_yvNuos--GbNd2_kEjO',
+					Download..'https://drive.google.com/uc?export=download&id=1MOw_vXGE_WOtUh4TXsiwJLoyY30fyqkU'
 				}
 ProudDir = GameInfo.dataDir..'/Resources/scripts/production_house/'
 ProudFiles = {'controller.lua','materialCell.lua'}
