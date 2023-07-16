@@ -360,7 +360,7 @@ for i = 1,#link_P do
   copy = copy + 50
   gg.toast("جــارِ نـقــل المـلــف.."..copy..'%')
 end
-close ()
+colse ()
 end
 
 
