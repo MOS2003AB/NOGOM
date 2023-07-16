@@ -11,13 +11,13 @@
 	if C == 1 then gg.clearResults() end
 end
 GameInfo=gg.getTargetInfo()
-if string.find(GameInfo.cmdLine,'funplus')
-     then
-     else
-      gg.alert('فعل الجيم جاردن علي المزرعة يبني متتعبنيش⁦ಠ_ʖಠ')
-       print ('انت دلوقتي شغال علي دي يافالح⁦ಠಗಠ⁩\n:'..GameInfo.cmdLine)
+-- if string.find(GameInfo.cmdLine,'funplus')
+   --  then
+      -- else
+        -- gg.alert('فعل الجيم جاردن علي المزرعة يبني متتعبنيش⁦ಠ_ʖಠ')
+       -- print ('انت دلوقتي شغال علي دي يافالح⁦ಠಗಠ⁩\n:'..GameInfo.cmdLine)
       
-end
+-- end
 Download = 'https://drive.google.com/uc?export=download&id='
 FT_Link = 'https://apkcombo.com/family-barn-tango/com.funplus.familyfarmtango/download/apk'
 FF_Lnk = 'https://download.apkcombo.com/com.funplus.familyfarm/Family%20Farm%20Seaside_7.8.100_apkcombo.com.apk?ecp=Y29tLmZ1bnBsdXMuZmFtaWx5ZmFybS83LjguMTAwLzUzNC5kMDMxMDdjNjA2MmZiMDZkYWMwMGE5Y2UzNjRhNTM3NTdmMDU3MWQzLmFwaw==&iat=1681469006&sig=49f8cddc6cf378670c08f17500d8c94f&size=127173972&from=cf&version=latest&lang=en&fp=facf7ff429aa43900ee6b6ab7bf55c89&ip=156.207.111.98'
