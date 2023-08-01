@@ -672,14 +672,14 @@ end
 gg.setVisible(false)
 
 function NG()
-	gg.alert("⛔️ سيتم اعادة فتحها قريبا ⛔️")
--- PASSSW = gg.prompt({"🔐 Enter Password 🔐:-"},{[1]=" 🔐 Password 🔐"},{[1]="text"})
--- if PASSSW == nil then gg.alert ('🔐Enter Password🔐') 
--- elseif PASSSW[1] == "" then gg.alert(" 🔐Enter Password🔐") vip() 
--- elseif PASSSW[1] == "zain" then gg.alert("🔓correct password☺️️")
--- NOGOM('h6C696D69745F636F6E6669675F6E6577',1,nil,10000,'0',1,nil,1,1) 
--- NOGOM('30001',4,nil,300,'15',1,nil,1,1) 
--- else gg.alert("🔒Incorrect password😭") end 
+	-- gg.alert("⛔️ سيتم اعادة فتحها قريبا ⛔️")
+ PASSSW = gg.prompt({"🔐 Enter Password 🔐:-"},{[1]=" 🔐 Password 🔐"},{[1]="text"})
+if PASSSW == nil then gg.alert ('🔐Enter Password🔐') 
+ elseif PASSSW[1] == "" then gg.alert(" 🔐Enter Password🔐") vip() 
+ elseif PASSSW[1] == "zain" then gg.alert("🔓correct password☺️️")
+ NOGOM('h6C696D69745F636F6E6669675F6E6577',1,nil,10000,'0',1,nil,1,1) 
+ NOGOM('30001',4,nil,300,'15',1,nil,1,1) 
+ else gg.alert("🔒Incorrect password😭") end 
 	
 	vip() 
 end
