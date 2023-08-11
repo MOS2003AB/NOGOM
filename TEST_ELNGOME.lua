@@ -121,7 +121,7 @@ function HOME_ALL()
 gg.setVisible(false)
 allcho = gg.choice(allccho,nil,hh)
 if allcho == nil then ex(1) end
-if allcho == 1 then NOGOM("Q'size_y'",1,nil,10000,'0',1,nil,1,1) end
+if allcho == 1 then  NOGOM(':tree_spacing',1,nil,10000,'0',1,nil,1,1) NOGOM("Q'size_x'",1,nil,10000,'0',1,nil,1,1) NOGOM("Q'size_y'",1,nil,10000,'0',1,nil,1,1) gg.alert('✖️لا تقم برص اكتر من 300 شجره ✖️') end
 if allcho == 2 then club_level() end
 if allcho == 3 then gg.alert(Cleaning_tickets)NOGOM('300;20',64,'20',300,'300',1,1,1,1) end
 if allcho == 4 then gg.lert(fish_tank) NOGOM('80;600;1800',4,nil,300,'0',1,nil,1,1) end
