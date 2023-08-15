@@ -1,6 +1,6 @@
  mosab = gg.alert("✰ ملاحظة هامة ✰ \n \n                  ✰ الملف لا يعمل على جيم جاردن اخر  ✰ ","                                          🛡🅴🅽🆃🅴🆁 دخـٰـَہول",(" ❌️🅴🆇🅸🆃 خـٰـَہروج"))
   if mosab == 2 then 
- function Exit()
+ function Exit()   
    end
 	pkg = gg.PACKAGE
 vrgn = gg.VERSION_INT
@@ -8,7 +8,7 @@ pkg_1 = 'com.elngome'
 if pkg ~=pkg_1  then
 gg.alert("✰قم باستخدام جبم جاردن النجوم✰") 
 -- os.exit()
-end 
+end  
 gg.setVisible(false)
   local code = math.random(100, 900)
 local passwordEntered = false
