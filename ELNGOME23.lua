@@ -1,4 +1,9 @@
-pkg = gg.PACKAGE
+ mosab = gg.alert("☻ ملاحظة هامة ☻ \n \n ╝❏ ⚜️★ الملف لا يشتغل على جيم جاردن ثاني 🙄 \n \n ","                                          🛡🅴🅽🆃🅴🆁 دخـٰـَہول",(" ❌️🅴🆇🅸🆃 خـٰـَہروج"))
+  if mosab == 2 then 
+    gg.alert("مع السلامة 😘")
+   os.exit()
+   end
+	pkg = gg.PACKAGE
 vrgn = gg.VERSION_INT
 pkg_1 = 'com.elngome'
 if pkg ~=pkg_1  then
