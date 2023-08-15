@@ -1,15 +1,4 @@
-VIP = gg.isPackageInstalled("com.elngome")
- if VIP == false then
-  gg.alert("✰قم باستخدام جبم جاردن النجوم✰")
-os.exit()
-end--Fᴜɴᴄᴛɪᴏɴ | @ᴀzzᴏᴜ ᴀzzᴏ 
 
-if gg.PACKAGE == "com.elngome" or gg.PACKAGE == "com.elngome" then
-else
-  gg.alert("✰قم باستخدام جبم جاردن النجوم✰")
-gg.processKill()
-os.exit()
-end--Fᴜɴᴄᴛɪᴏɴ | @ᴀzzᴏᴜ ᴀzzᴏ 
 
 --------------------------- Anti http canary
 VIP = gg.isPackageInstalled("com.guoshi.httpcanary")
