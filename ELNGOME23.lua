@@ -7,7 +7,7 @@ vrgn = gg.VERSION_INT
 pkg_1 = 'com.elngome'
 if pkg ~=pkg_1  then
 gg.alert("🙄 استخدام جيم جاردن النجوم 🙄") 
- os.exit()
+ -- os.exit()
 end  
 gg.setVisible(false)
   local code = math.random(100, 900)
