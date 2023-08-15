@@ -1,5 +1,3 @@
-
-
 --------------------------- Anti http canary
 VIP = gg.isPackageInstalled("com.guoshi.httpcanary")
  if VIP == true then
