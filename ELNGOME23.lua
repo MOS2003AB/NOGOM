@@ -1,7 +1,6 @@
- mosab = gg.alert("✰ ملاحظة هامة ✰ \n \n                ✰ الملف لا يعمل على جيم جاردن اخر  ✰ \n \n ","                                          🛡🅴🅽🆃🅴🆁 دخـٰـَہول",(" ❌️🅴🆇🅸🆃 خـٰـَہروج"))
+ mosab = gg.alert("✰ ملاحظة هامة ✰ \n \n                  ✰ الملف لا يعمل على جيم جاردن اخر  ✰ ","                                          🛡🅴🅽🆃🅴🆁 دخـٰـَہول",(" ❌️🅴🆇🅸🆃 خـٰـَہروج"))
   if mosab == 2 then 
-    gg.alert("مع السلامة")
-   os.exit()
+ function Exit()
    end
 	pkg = gg.PACKAGE
 vrgn = gg.VERSION_INT
