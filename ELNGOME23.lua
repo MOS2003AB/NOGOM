@@ -1211,7 +1211,7 @@ function file_exists(file)
 	  return f ~= nil
 	end
 function Exit()
-gg.setVisible(true)
+gg.setVisible(true)  
 print("__________u$$$$$$$$$$$$$$$$$$$u__________")
 print("_________u$$$$$$$$$$$$$$$$$$$$$u_________")
 print("_______u$$$$$$$$$$$$$$$$$$$$$$$$u_______")
