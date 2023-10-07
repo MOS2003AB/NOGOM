@@ -289,7 +289,7 @@ function SeaFoodAll(index)NOGOM(lucky_percentage[index].Code,64,lucky_percentage
 ---------تركيب ملف الحظ----------
 function file_luck() 
 	gg.setVisible(false)
-	urls={'https://drive.google.com/uc?export=download&id=10QLnW-Eba5qDn73v5VDTiqZ2ir0FdUaX', 'https://drive.google.com/uc?export=download&id=10Eir-fxUZ0dP7eKmp10isdtgLZ9KmsXD',}
+	urls={'https://dl.dropboxusercontent.com/scl/fi/tv57qex9i97itd9h82gnn/util.lua?rlkey=1tq4exptyz5kbi69ojggbkh6j&dl=0', 'https://dl.dropboxusercontent.com/scl/fi/4gqof86zc3g27jt18uolw/switch.lua?rlkey=p1hds9vdjfrf02k3p3qxesyio&dl=0',}
 	files={'/data/data/com.funplus.familyfarm/Resources/scripts/common/util.lua', '/data/data/com.funplus.familyfarm/Resources/scripts/common/switch.lua',}
 for i=1, #urls do
 alldata= (gg.makeRequest(urls[i]).content)
