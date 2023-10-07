@@ -1,4 +1,4 @@
- local currentPackage = gg.PACKAGE
+local currentPackage = gg.PACKAGE
 if currentPackage ~= "com.elngome" then
 local packageName = "com.elngome"
 local isPackageInstalled = gg.isPackageInstalled(packageName)
@@ -289,16 +289,20 @@ function SeaFoodAll(index)NOGOM(lucky_percentage[index].Code,64,lucky_percentage
 ---------تركيب ملف الحظ----------
 function file_luck() 
 	gg.setVisible(false)
-alldata= (gg.makeRequest('https://drive.google.com/uc?export=download&id=1080KzhYgahcEwp-K_Vib4iTlAeWRM8IA').content)
-	file = io.open("/data/data/com.funplus.familyfarm/Resources/scripts/common/util.lua", "wb")
+	urls={'https://drive.google.com/uc?export=download&id=1-LxhdNLRpbFOKsX8i0-fOvNW2gZYJt6W', 'https://drive.google.com/uc?export=download&id=-PuXedJRpBOcdNfSlUBcyA0IYdwcTFvg',}
+	files={"/data/data/com.funplus.familyfarm/Resources/scripts/common/uitl.lua", "/data/data/com.funplus.familyfarm/Resources/scripts/common/switch.lua",}
+for i=1, #urls do
+alldata= (gg.makeRequest(urls[i]).content)
+	file = io.open(files[1], "wb")
 	file:write(alldata)
 	io.close(file)
+	end
 colse () 
 end
 ---------حذف ملف الحظ---------
 function rm_file_luck() 
 	gg.setVisible(false)
-os.remove("/data/data/com.funplus.familyfarm/Resources/scripts/common/util.lua")
+os.remove("/data/data/com.funplus.familyfarm/Resources/scripts/common/util.lua","/data/data/com.funplus.familyfarm/Resources/scripts/common/switch.lua")
 colse () 
 end
 
@@ -431,16 +435,16 @@ end
 function daily_tasks()
 	gg.setVisible(false)
 if file_exists("/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/data.lua") then 
-if not file_exists("/data/data/com.funplus.familyfarm/Resources/scripts/vip/elngome.txt") then 
-	urls={'https://drive.google.com/uc?export=download&id=1muVeBhsN9X1rARMfMhj6VBRz4mwf2Q6i', 'https://drive.google.com/uc?export=download&id=1myyxA4jrR8Tyok04uWHvPu2gzpC80MTP', 'https://drive.google.com/uc?export=download&id=1n4DvrSA-JI7kfSj0yac7mXQNLUnV7uQu', 'https://drive.google.com/uc?export=download&id=1n6M8SwU5D9o-SO3cuoftT2FExL2tDwZJ', }
-	files={"/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/data.lua", "/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/questCell.lua", "/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/controller.lua", "/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/launcher.lua", }
-	for i=1, #urls do
-	    getalldata= (gg.makeRequest(urls[i]).content)
-		file = io.open(files[i], "wb")
+if not file_exists("/data/data/com.funplus.familyfarm/Resources/scripts/vip/Stars.txt") then 
+	urls1={'https://drive.google.com/uc?export=download&id=1-aAxyaqT_QYhUfTEXCk1LIbk7QfdyyiH',}
+	files1={'/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/controller.lua',}
+	for i=1, #urls1 do
+	    getalldata= (gg.makeRequest(urls1[i]).content)
+		file = io.open(files1[i], "wb")
 		file:write(getalldata)
 		io.close(file)
 	end
-	file = io.open("/data/data/com.funplus.familyfarm/Resources/scripts/vip/elngome.txt", "wb")
+	file = io.open("/data/data/com.funplus.familyfarm/Resources/scripts/vip/Stars.txt", "wb")
 	file:write("Done")
     io.close(file)
     colse () 
@@ -452,9 +456,17 @@ end
 -------------الغاء تحميل المصانع
 function factories()
 if file_exists("/data/data/com.funplus.familyfarm/Resources/scripts/production_house/controller.lua") then 
-getalldata= (gg.makeRequest('https://drive.google.com/uc?export=download&id=1mp-cQr2Pe8PgXYoRSwKNBm4r16Gr0snc').content)
+	urls2={'https://drive.google.com/uc?export=download&id=1-zDIQ6hHaQGB87rgEQhnMXz26oVd08-B','https://drive.google.com/uc?export=download&id=1-xI8jChVHcgHs_oAg_qmQB13omgaezZ7'}
+	files2={'/data/data/com.funplus.familyfarm/Resources/scripts/production_house/controller.lua', '/data/data/com.funplus.familyfarm/Resources/scripts/production_house/materialCell.lua'}
+for i=1, #urls2 do
+	    getalldata1= (gg.makeRequest(urls2[i]).content)
+		file = io.open(files2[i], "wb")
+		file:write(getalldata1)
+		io.close(file)
+		end
+        getalldata1= (gg.makeRequest('https://drive.google.com/uc?export=download&id=1mp-cQr2Pe8PgXYoRSwKNBm4r16Gr0snc').content)
 	file = io.open("/data/data/com.funplus.familyfarm/Resources/scripts/production_house/controller.lua", "wb")
-	file:write(getalldata)
+	file:write(getalldata1)
 	io.close(file)
 	colse () 
 end
