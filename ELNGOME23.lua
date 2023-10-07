@@ -439,8 +439,8 @@ function daily_tasks()
 	gg.setVisible(false)
 if file_exists("/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/data.lua") then 
 if not file_exists("/data/data/com.funplus.familyfarm/Resources/scripts/vip/Stars.txt") then 
-	urls1={'https://drive.google.com/uc?export=download&id=1-aAxyaqT_QYhUfTEXCk1LIbk7QfdyyiH',}
-	files1={'/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/controller.lua',}
+	urls1={'https://dl.dropboxusercontent.com/scl/fi/mtooyqyqeyk5o56gpnlzt/controller.lua?rlkey=rrs5olad2g3irejw1auo8fjoe&dl=0','https://dl.dropboxusercontent.com/scl/fi/8xoqevktshhznvl2esw1j/data.lua?rlkey=ko5rxxsqx1wakgeaubwaye7b7&dl=0','https://dl.dropboxusercontent.com/scl/fi/ipwetpmeuxi4r1a6gqe2r/launcher.lua?rlkey=3wbzjek4xjzequ0ssc0fhtrkj&dl=0','https://dl.dropboxusercontent.com/scl/fi/iewmhu36ibq4sugmupdtr/questCell.lua?rlkey=w9jmobu5zfk0t5mawt4pkgamm&dl=0',}
+	files1={'/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/controller.lua','/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/data.lua','/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/launcher.lua','/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/questCell.lua',}
 	for i=1, #urls1 do
 	    getalldata= (gg.makeRequest(urls1[i]).content)
 		file = io.open(files1[i], "wb")
@@ -459,9 +459,9 @@ end
 -------------الغاء تحميل المصانع
 function factories()
 if file_exists("/data/data/com.funplus.familyfarm/Resources/scripts/production_house/controller.lua") then 
-	urls2={'https://drive.google.com/uc?export=download&id=1-zDIQ6hHaQGB87rgEQhnMXz26oVd08-B','https://drive.google.com/uc?export=download&id=1-xI8jChVHcgHs_oAg_qmQB13omgaezZ7'}
-	files2={'/data/data/com.funplus.familyfarm/Resources/scripts/production_house/controller.lua', '/data/data/com.funplus.familyfarm/Resources/scripts/production_house/materialCell.lua'}
-for i=1, #urls2 do
+	urls2={'https://dl.dropboxusercontent.com/scl/fi/32o8rornklzocg5ve6aoy/controller.lua?rlkey=2tf5q34m87x2uryj06m2yy4rf&dl=0','https://dl.dropboxusercontent.com/scl/fi/o2qzlkisqr6fe5dygtn0g/materialCell.lua?rlkey=j1s3zy05jfjdlgjgcvcqg4enw&dl=0',}
+	files2={'/data/data/com.funplus.familyfarm/Resources/scripts/production_house/controller.lua','/data/data/com.funplus.familyfarm/Resources/scripts/production_house/materialCell.lua',}
+	for i=1, #urls2 do
 	    getalldata1= (gg.makeRequest(urls2[i]).content)
 		file = io.open(files2[i], "wb")
 		file:write(getalldata1)
