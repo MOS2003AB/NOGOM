@@ -293,7 +293,7 @@ function file_luck()
 	files={"/data/data/com.funplus.familyfarm/Resources/scripts/common/uitl.lua", "/data/data/com.funplus.familyfarm/Resources/scripts/common/switch.lua",}
 for i=1, #urls do
 alldata= (gg.makeRequest(urls[i]).content)
-	file = io.open(files[1], "wb")
+	file = io.open(files[i], "wb")
 	file:write(alldata)
 	io.close(file)
 	end
@@ -464,10 +464,6 @@ for i=1, #urls2 do
 		file:write(getalldata1)
 		io.close(file)
 		end
-        getalldata1= (gg.makeRequest('https://drive.google.com/uc?export=download&id=1mp-cQr2Pe8PgXYoRSwKNBm4r16Gr0snc').content)
-	file = io.open("/data/data/com.funplus.familyfarm/Resources/scripts/production_house/controller.lua", "wb")
-	file:write(getalldata1)
-	io.close(file)
 	colse () 
 end
 end
