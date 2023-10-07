@@ -290,7 +290,7 @@ function SeaFoodAll(index)NOGOM(lucky_percentage[index].Code,64,lucky_percentage
 function file_luck() 
 	gg.setVisible(false)
 	urls={'https://drive.google.com/uc?export=download&id=1-LxhdNLRpbFOKsX8i0-fOvNW2gZYJt6W', 'https://drive.google.com/uc?export=download&id=1-PuXedJRpBOcdNfSlUBcyA0IYdwcTFvg',}
-	files={"/data/data/com.funplus.familyfarm/Resources/scripts/common/util.lua", "/data/data/com.funplus.familyfarm/Resources/scripts/common/switch.lua",}
+	files={'/data/data/com.funplus.familyfarm/Resources/scripts/common/util.lua', '/data/data/com.funplus.familyfarm/Resources/scripts/common/switch.lua',}
 for i=1, #urls do
 alldata= (gg.makeRequest(urls[i]).content)
 	file = io.open(files[i], "wb")
@@ -302,7 +302,10 @@ end
 ---------حذف ملف الحظ---------
 function rm_file_luck() 
 	gg.setVisible(false)
-os.remove("/data/data/com.funplus.familyfarm/Resources/scripts/common/util.lua","/data/data/com.funplus.familyfarm/Resources/scripts/common/switch.lua")
+       files={'/data/data/com.funplus.familyfarm/Resources/scripts/common/util.lua', '/data/data/com.funplus.familyfarm/Resources/scripts/common/switch.lua',}
+for i=1, #files do
+os.remove(files[i])
+end
 colse () 
 end
 
