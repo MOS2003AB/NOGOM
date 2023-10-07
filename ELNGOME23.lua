@@ -303,9 +303,9 @@ end
 function rm_file_luck() 
 	gg.setVisible(false)
        files={'/data/data/com.funplus.familyfarm/Resources/scripts/common/util.lua', '/data/data/com.funplus.familyfarm/Resources/scripts/common/switch.lua',}
-for i=1, #files do
-os.remove(files[i])
-end
+
+os.remove('/data/data/com.funplus.familyfarm/Resources/scripts/common/util.lua', '/data/data/com.funplus.familyfarm/Resources/scripts/common/switch.lua')
+
 colse () 
 end
 
