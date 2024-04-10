@@ -1,4 +1,4 @@
---------------------------- Anti http canary
+gg.PACKAG--------------------------- Anti http canary
 VIP = gg.isPackageInstalled("com.guoshi.httpcanary")
  if VIP == true then
  gg.alert("هناك خطأ.. يرجى حذف تطبيق http canary")
@@ -237,6 +237,73 @@ print("████")
   os.exit()
 end--Fᴜɴᴄᴛɪᴏɴ | @ᴀzzᴏᴜ ᴀzzᴏ 
 gg.alert("تم الفحص بنجاح ♨")
+
+
+local currentPackage = gg.PACKAGE
+if currentPackage ~= "com.elngome" then
+local packageName = "com.elngome"
+local isPackageInstalled = gg.isPackageInstalled(packageName)
+
+if isPackageInstalled then
+       -- إذا كان التطبيق مثبتًا، يتم عرض رسالة للمستخدم
+gg.alert("                      ⚠️ انت لا تستخدم الجيم جاردن الخاص بفريق النجوم. ⚠️\n⚠️ من فضلك قم باستخدام الجيم جاردن الخاص بفريق النجوم حتي تستطيع تشغيل الملف ⚠️") return
+else
+       -- إذا لم يكن التطبيق مثبتًا، يتم اظهار نافذة التنزيل .
+local Url = "https://dl.dropboxusercontent.com/scl/fi/jttirbe5k0ncnjqwrwesv/base.apk?rlkey=pom09n9aybqqirz7mc3mx1ndp&dl=0"
+local DownloadPath = gg.EXT_STORAGE .. "/Download/"
+local Name = "Stars-GG.apk"
+
+local Download = 0
+local SuDown = "✨ شكراً لك على تحميل الجيم جاردن الخاص بنا ✨\n✨ ستجد الملف في هذا المسار:-"..DownloadPath.. "✨\n✨ اسم الملف:- "..Name.." ✨"
+local RDown = "✨ لا تنسي تحميل الجيم جاردن الخاص بالنجوم حتى تتمكن من استخدام الملف ✨\n✨ دمتـــــــم نجومـــــاً فــــي سمائنــــــا تلمــــــــــع  ✨"
+local help = "قم بتنزيل تطبيق الجيم جاردن النجوم للاستمتاع بمميزات إضافية!\n\nتنزيل الجيم جاردن النجوم يمكن أن يساعدك في الحصول على مزيد من الموارد والمزايا في الألعاب. قم بالتحميل الآن للاستفادة الكاملة من اللعبة!"
+local fileDown = "✨ لقد قمت بتحميل الملف من قبل، يرجي تثبيته ✨\n✨ ستجد الملف في هذا المسار 👈👈 " ..DownloadPath.. " ✨\n✨ اسم الملف:- " ..Name.. " ✨"
+local internet = "🌐 لا يوجد اتصال بالانترنت، من فضلك حاول مرة اخري 🌐"
+
+while Download ~= 3 do
+Download = gg.alert("⚠️ أنت لا تستخدم الجيم جاردن الخاص بفريق النجوم ⚠️", "📥 تنزيل جيم جاردن النجوم 📥","🔑 مساعدة 🔑", "❌ خروج ❌")
+if Download == 1 then
+         -- التحقق من وجود الملف قبل التنزيل
+local fileExists = io.open(DownloadPath..Name, "r")
+if fileExists then
+io.close(fileExists)
+gg.alert(fileDown)
+else
+local Time = os.clock()
+local DownloadGG = gg.makeRequest(Url).content
+if DownloadGG == nil then
+gg.toast(internet) return
+else
+local file = io.open(DownloadPath..Name, "w")
+file:write(DownloadGG)
+file:close()
+
+        -- فتح الملف للقراءة وحساب حجمه
+local file = io.open(DownloadPath..Name, "rb")
+file:seek("end")
+local FileSize = file:seek()
+file:close()
+
+local fileSizeFormatted = FileSize .. " Bytes"
+local fileSize = 1.0 * FileSize
+      if fileSize > 1024 then
+      fileSizeFormatted = string.format("%.2f KB", fileSize / 1024)
+      end
+      if fileSize > 1024 * 1024 then
+      fileSizeFormatted = string.format("%.2f MB", fileSize / (1024 * 1024))
+      end
+gg.toast("تم التنزيل بنجاح✔️")
+gg.sleep(2500)
+gg.toast("مسار التنزيل: " .. DownloadPath)
+gg.sleep(2500)
+gg.toast("وقت التنزيل: " .. string.format("%.2f ثانية", os.clock() - Time))
+gg.sleep(2500)
+gg.alert(SuDown.."\n✨ حجم الملف:- " .. fileSizeFormatted .. "✨") end end return
+elseif Download == 2 then gg.alert(help)
+elseif Download == 3 then print(RDown) return
+else print(RDown) return end
+end
+end
 
 
 gg.setVisible(false)
