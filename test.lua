@@ -1087,7 +1087,7 @@ local function downloadFile(selectedUrl, selectedName)
         
         if getalldata == nil then
             gg.toast('⚠️ حدثت مشكلة أثناء التنزيل. يرجى المحاولة مرة أخرى.')
-            return
+            return os.exit()
         end
         
         local file = io.open(DownloadPath .. selectedName, "w")
