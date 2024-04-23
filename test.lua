@@ -1,4 +1,5 @@
 local path = gg.EXT_STORAGE
+local GameInfo=gg.getTargetInfo()
 local DownloadPath = path .. "/Download/"
 local currentPackage = gg.PACKAGE
 if currentPackage ~= "com.elngome" then
@@ -80,7 +81,7 @@ while not passwordEntered do
 end
 ------------------------------------Processes---------------------------------------------------------------
 	
- function NOGOM(search,type,refine,results,edit,S,R,E,C)
+ function NOGOM(search,type,refine,results,edit,S,R,E,C) gg.setVisible(false)
 	srch = tostring (search)
     rfn = tostring (refine)          
     edt = tostring (edit)
@@ -134,7 +135,7 @@ gg.toast("ELNGOME")
 
 hh=(os.date("\t\t\t\t\t\t\t\t\t📅 %d %B %Y       \t\t\t\t\t\t\t\t\t🕐%I:%M:%S \n\t\t\t\t\t╔╰❥❣✰═══════✬⋆✪⋆✬═══════✰❣✿╗\n\t\t\t\t\t    ↣╰❥❣✰═══✬⋆SCRIPT ELNGOME⋆✬═══✰❣✿ \n\t\t\t\t\t╚╰❥❣✰═════✬⋆ELNGOME⋆✬═════✰❣✿╝"))
 header = hh
-elngooom ={"『1』【 القسم الشامل📂 】","『2』【 قسم الحظ والتسريع 📂 】","『3』【 قسم الحيوانات الأليفة 📂 】","『4』【 قسم التفعيلات الخاصة 📂 】","『5』【 قسم شراء منتجات بنقود صفراء  📂 】","『6』【 قسم زرع المختبر 📂 】","『7』【 تبديل المزارع 📂 】","『8』【 متجر تطبيقات  📂 】","✘ خروج ✘"} search_again = "‼️ لم يتم العثور علي نتائج بحث ... قم بإعادة البحث 🔁"
+elngooom ={"『1』【 القسم الشامل📂 】","『2』【 قسم الحظ والتسريع 📂 】","『3』【 قسم الحيوانات الأليفة 📂 】","『4』【 قسم التفعيلات الخاصة 📂 】","『5』【 قسم شراء منتجات بنقود صفراء  📂 】","『6』【 قسم زرع المختبر 📂 】","『7』【 تبديل المزارع 📂 】","『8』【 متجر تطبيقات  📂 】","『9』【 قسم VIP  📂 】","✘ خروج ✘"} search_again = "‼️ لم يتم العثور علي نتائج بحث ... قم بإعادة البحث 🔁"
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------HOME_All(1)-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 allccho={"『1』〘  المطورات من الجيران 📂 〙","『2』〘  الوهمي 📂 〙","『3』〘  رفع المستوى 📝 〙","『4』〘  زيادة طعام الأسماك 📝 〙","『5』〘  تذاكر التنظيف 📝 〙","『6』〘  رفع مستوى بيت خالد 📝 〙","『7』〘  عملات حوض السمك 📝 〙","『8』〘  البقرة المليونيرة 📝 〙"," ↩️ رجوع ↩️ "} Cleaning_tickets='📃 اضغط علي اختيار تلقائي قبل اختيار تذاكر التنظيف وانتظر حتي ينتهي العد ثم اضغط اختيار تلقائي مرة اخري️' Khaled_house='?? قم بتخزين سجادة الهالوين اولاً' donekhaledHouse=' ✨ قم بشراء ورص سجاد الهالويين ✨ ' fish_tank='📃 قم بفتح حوض السمك اولاً' millionaire_cow='📃 قم بتخزين الطاووس اولاً'
@@ -145,7 +146,7 @@ codes_gadgets ={'646494694','1536','1614','1561','1832','1783','1658','1852','17
 fake1 = {"『1』〘 دنانير وتلقائي من المصنع 📝 〙","『2』〘 دنانير وهمي من الهدايا 📝 〙"," رجوع ↩️ "} fakea = "📃 قم بفتح المصنع اولا ثم قم بالدمج" fakeB = "📃 قم بالتحديد علي الطاقة قبل البحث"
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------HOME_speed_luck(2)----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-list_luck ={"『1』〘 تفعيل الحظ منزل المأكولات 📂 〙","『2』〘 تفعيل الحظ 📝 〙","『3』〘 ايقاف تفعيل الحظ 📝 〙","『4』〘 تفعيل التسريع 📝 〙","『5』〘 ايقاف التسريع 📝 〙","『6』〘 تركيب ملف الحظ 📝 〙","『7』〘 الغاء تركيب ملف الحظ 📝 〙"," رجوع↩️ ",} msgSpeed=''
+list_luck ={"『1』〘 تفعيل الحظ منزل المأكولات 📂 〙","『2』〘 تفعيل الحظ 📝 〙","『3』〘 ايقاف تفعيل الحظ 📝 〙","『4』〘 تفعيل التسريع 📝 〙","『5』〘 ايقاف التسريع 📝 〙","『6』〘 تسريع المنطاد 📝 〙","『7』〘 تركيب ملف الحظ 📝 〙"," رجوع↩️ ",} list_luck_rm ={"『1』〘 تفعيل الحظ منزل المأكولات 📂 〙","『2』〘 تفعيل الحظ 📝 〙","『3』〘 ايقاف تفعيل الحظ 📝 〙","『4』〘 تفعيل التسريع 📝 〙","『5』〘 ايقاف التسريع 📝 〙","『6』〘 تسريع المنطاد 📝 〙","『7』〘 الغاء تركيب ملف الحظ 📝 〙"," رجوع↩️ ",}  msgSpeed=''
 ---------------------------------------SeaFoodHome---------------------------------
 list_seafood = {"『1』〘 تفعيل الكل 📝 〙","『2』〘 أعشاب الخليج 📝 〙","『3』〘 أعشاب البحر 📝 〙","『4』〘 صدفه 📝 〙","『5』〘 حلزون البحر البزاق 📝 〙","『6』〘 مرجان 📝 〙","『7』〘 نجم البحر 📝 〙","『8』〘 أخطبوط 📝 〙","『9』〘 السلطعون 📝 〙","『10』〘 جمبري أبوسوم 📝 〙","『11』〘 كابوريا الطين 📝 〙","『12』〘 الكابوريا 📝 〙","『13』〘 سلطعون مثلج 📝 〙","『14』〘 سلطعون الضفدع الأحمر 📝 〙"," رجوع ↩️ ",}
 lucky_percentage={{['Code']='5011;7;500017;5',['Refine']='7;5'},{['Code']='31031;15',['Refine']='15'},{['Code']='31022;50',['Refine']='50'},{['Code']='31023;30',['Refine']='30'},{['Code']='31032;20;31027;30',['Refine']='20;30'},{['Code']='31028;30',['Refine']='30'},{['Code']='31030;20',['Refine']='20'},{['Code']='31024;50',['Refine']='50'},{['Code']='700052;10',['Refine']='10'},{['Code']='31025;40',['Refine']='40'},{['Code']='31026;6;31025;15',['Refine']='6;15'},{['Code']='31036;50',['Refine']='50'},{['Code']='31026;15',['Refine']='15'}}
@@ -160,7 +161,7 @@ choices_3 =  {"『1』〘 لباس رقم -1 📝 〙","『2』〘 لباس رق
 choices_4 =  {"『1』〘 قبعة رقم -1 📝 〙","『2』〘 قبعة رقم -2 📝 〙","『3』〘 قبعة رقم -3 📝 〙","『4』〘 قبعة رقم -4 📝 〙","『5』〘 قبعة رقم -5 📝 〙","『6』〘 قبعة رقم -6 📝 〙","『7』〘 قبعة رقم -7 📝 〙","『8』〘 قبعة رقم -8 📝 〙" ,"『9』〘 قبعة رقم -9 📝 〙", "『10』〘 قبعة رقم -10 📝 〙","『11』〘 قبعة رقم -11 📝 〙", "『12』 قبعة رقم -12 📝 〙",  "『13』〘 قبعة رقم -13 📝 〙", "『14』〘 قبعة رقم -14 📝 〙"," رجوع ↩️ ", }
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------HOME_Special_tasks(4)-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-other_tasks={"『1』〘 المهام اليومية 📝 〙","『2』〘 فتح الكشك بعد غلقه 📝 〙","『3』〘 المشفي 📝 〙","『4』〘 إلغاء تحميل مصانع الخردة 📝 〙","『5』〘 فاعلية التلقائي 📝 〙","『6』 فتح ثلاث نجوم الزوار 📝 〙","『7』〘 جوازات السفر 0 نقود 📝 〙","『8』〘 تثبيت صنارة الصيد بالمنتصف 📝 〙","『9』〘 تدمير الخطأ 📝 〙","『10』〘 تبرع المجتمع بالأصفر 📝 〙","『11』〘 فتح 3 نجوم الات الجزيرة 📝 〙","『12』〘 تخطي نقاط الجزيرة بالمصانع 📝 〙","『13』〘 طاقة نافورة الوفرة 📝 〙"," رجوع↩️ ", }
+other_tasks={"『1』〘 المهام اليومية 📝 〙","『2』〘 المشفي 📝 〙","『3』〘 إلغاء تحميل مصانع الخردة 📝 〙","『4』 فتح ثلاث نجوم الزوار 📝 〙","『5』〘 جوازات السفر 0 نقود 📝 〙","『6』〘 تدمير الخطأ 📝 〙","『7』〘 تبرع المجتمع بالأصفر 📝 〙","『8』〘 فتح 3 نجوم الات الجزيرة 📝 〙"," رجوع↩️ ", }
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -------------------------------------------HOME_BUY(5)-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 list_buy = {'『1』〘 أسماك 📂 〙','『2』〘 تحصيل 📂 〙','『3』〘 منتجات بالفيزا 📂 〙','『4』〘 منتجات مطورات 📂 〙','『5』〘 منتجات الجزيرة 📂 〙','『6』〘 منتجات الآلات المغلقة 📂 〙','『7』〘 شراء بالكود 📝 〙','『8』〘 اعادة الضبط لشراء منتجات آخري 📝 〙',' رجوع↩️ '} moqed = "🔥قم بفتح موقد الطهي واختار وصفة معكرونه بالجبن 🔥"
@@ -236,6 +237,8 @@ urls_name = {
     'ساند VIP Multibox 5',
     'رجوع',
 } 
+----------------------------------------------------Home_VIP(9)----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+list_vip = {"『1』〘 فتح الكشك بعد غلقه 📝 〙","『2』〘 تثبيت صنارة الصيد بالمنتصف 📝 〙","『3』〘 فاعلية التلقائي 📝 〙","『4』〘 تخطي نقاط الجزيرة بالمصانع 📝 〙","『5』〘 طاقة نافورة الوفرة 📝 〙"," رجوع↩️ ", }
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Help_menu = {"『1』〘 روابط مساعدة للتهكير 📝〙","『2』〘 بعض اكواد المزرعة 📝〙", "  رجوع ↩️ ",} 
 Urls_name = {"『1』〘 المزرعه الاصدار الأخير 7.8.100 📝〙","『2』〘 جيم جاردن ELNGOME 📝〙","『3』〘 جيم جاردن الرسمي اخر اصدار 📝〙","『4』〘 ملف الشامل ELNGOME 📝〙","『5』〘 قريبا 📝〙", "『6』〘 اF1 لاندرويد ١٣ 📝〙","『7』〘 جاجا اندرويد ١٢ و ١٣ 📝〙","『8』〘 ساند اندرويد ١٢ 📝〙","『9』〘 اللانشر 📝〙","『10』〘 ساند اندرويد 11 📝〙","『11』〘 الساند لاندرويد 7حتي11 📝〙","『12』〘 الجاجا 📝〙","『13』〘 فيموس اندرويد 12 📝〙", "『14』〘 روم فيموس 📝〙 ", "『15』〘 اداه تفعيل فيموس 📝〙", "『16』〘 متجر Apkpure  لتحديث المزرعه 📝〙","『17』〘 المستكشفes 📝〙","『18』〘 المستكشفMT 📝〙","『19』〘 اClone app pro 📝〙 ", "『20』〘 الفرس التلقائي اوتو كليكر 📝〙", "『21』〘 اوتو كليكر 📝〙", "『22』〘 انقر مساعد اوتو كليكر 📝〙","『23』〘 اVMOS unlocker 📝〙", "  رجوع↩️ "}
@@ -282,15 +285,16 @@ function HOME()
 gg.setVisible(false)
 elngoom = gg.choice(elngooom,nil,hh)
 if elngoom == nil then  else
-if elngoom==1 then HOME_ALL() end
-if elngoom==2 then speed_luck()end
-if elngoom==3 then animals()end
-if elngoom==4 then special_tasks() end
-if elngoom==5 then buy() end
-if elngoom==6 then gg.alert(cafe) plants() end
-if elngoom==7 then changeFarms() end
-if elngoom==8 then appStore() end
-if elngoom==9 then Exit() end
+if elngoom==1  then HOME_ALL() end
+if elngoom==2  then speed_luck()end
+if elngoom==3  then animals()end
+if elngoom==4  then special_tasks() end
+if elngoom==5  then buy() end
+if elngoom==6  then gg.alert(cafe) plants() end
+if elngoom==7  then changeFarms() end
+if elngoom==8  then appStore() end
+if elngoom==9  then vip() end
+if elngoom==10 then Exit() end
 end
 ex(0) 
   end
@@ -341,6 +345,7 @@ end
 ---------------------------------------HOME_speed_luck(2)----------------------------------------------------
 function speed_luck()
 	gg.setVisible(false)
+	if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_lucky.txt") then
    speedo_luck = gg.choice(list_luck,nil,hh)
 if speedo_luck == nil then ex(2) end
 if speedo_luck == 1 then seafood() end
@@ -348,12 +353,24 @@ if speedo_luck == 2 then gg.unrandomizer(0) end
 if speedo_luck == 3 then gg.unrandomizer(nil,nil,nil,nil) end
 if speedo_luck == 4 then Speed() end
 if speedo_luck == 5 then gg.setSpeed(1.0) end
-if speedo_luck == 6 then file_luck()end
+if speedo_luck == 6 then pallon_speed() end
+if speedo_luck == 7 then file_luck()end
+if speedo_luck == 8 then HOME() end
+ex(2)
+else
+speedo_luck = gg.choice(list_luck_rm,nil,hh)
+if speedo_luck == nil then ex(2) end
+if speedo_luck == 1 then seafood() end
+if speedo_luck == 2 then gg.unrandomizer(0) end
+if speedo_luck == 3 then gg.unrandomizer(nil,nil,nil,nil) end
+if speedo_luck == 4 then Speed() end
+if speedo_luck == 5 then gg.setSpeed(1.0) end
+if speedo_luck == 6 then pallon_speed() end
 if speedo_luck == 7 then rm_file_luck()end
 if speedo_luck == 8 then HOME() end
 ex(2)
 end
-
+end
 ------------منزل المأكولات--------------
 function seafood()
 	gg.setVisible(false)
@@ -411,11 +428,50 @@ function Speed()
         end
     end
 end
+
+----------تسريع المنطاد------------
+function pallon_speed()
+gg.setVisible(false)
+urls_1={'https://bit.ly/3xOR0HA','https://bit.ly/4aNCiiF','https://bit.ly/3xW0W1W'}
+files_1={GameInfo.dataDir .. '/Resources/scripts/pet_team/newPTData.lua',GameInfo.dataDir .. '/Resources/scripts/pet_team/newPTPet.lua','/data/data/com.funplus.familyfarm/Resources/scripts/pet_team/ptHUDIcon.lua'}
+if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_PallonSpeed.txt") then
+    hosp = gg.alert("💫 تركيب ملف تسريع المنطاد 💫","✅ تركيب ✅",""," رجوع ↩️")
+    
+    if hosp == 1 then 
+        for i=1, #urls_1 do
+	    getalldata_1= (gg.makeRequest(urls_1[i]).content)
+		file = io.open(files_1[i], "wb")
+		file:write(getalldata_1)
+		io.close(file)
+		end
+        gg.toast("✅ تم تركيب الملف بنجاح ✅")
+        -- إنشاء الملف stars_hospital.txt
+        local file = io.open(GameInfo.dataDir .. "/Resources/scripts/vip/stars_PallonSpeed.txt", "w")
+        file:write("Pallon Speed Done ✅")
+        file:close()
+        close()
+    elseif hosp == 2 then 
+        speed_luck()
+    end
+else
+    hosp = gg.alert("💫 لقد قمت بتركيب الملف بنجاح 💫","❎ الغاء تركيب ❎",""," رجوع ↩️")
+    
+    if hosp == 1 then 
+        for i=1 ,#files_1 do
+		os.remove(files_1[i])
+		end
+		gg.toast("✅ تم حذف الملف بنجاح ✅")
+        os.remove(GameInfo.dataDir .. "/Resources/scripts/vip/stars_PallonSpeed.txt") -- حذف الملف stars_hospital.txt
+        close()
+    elseif hosp == 2 then speed_luck()
+    end
+end
+end
 ---------تركيب ملف الحظ----------
 function file_luck() 
 	gg.setVisible(false)
 	urls={'https://dl.dropboxusercontent.com/scl/fi/tv57qex9i97itd9h82gnn/util.lua?rlkey=1tq4exptyz5kbi69ojggbkh6j&dl=0', 'https://dl.dropboxusercontent.com/scl/fi/4gqof86zc3g27jt18uolw/switch.lua?rlkey=p1hds9vdjfrf02k3p3qxesyio&dl=0',}
-	files={'/data/data/com.funplus.familyfarm/Resources/scripts/common/util.lua', '/data/data/com.funplus.familyfarm/Resources/scripts/common/switch.lua',}
+	files={GameInfo.dataDir .. '/Resources/scripts/common/util.lua', GameInfo.dataDir .. '/Resources/scripts/common/switch.lua',}
 for i=1, #urls do
 alldata= (gg.makeRequest(urls[i]).content)
 	file = io.open(files[i], "wb")
@@ -423,16 +479,21 @@ alldata= (gg.makeRequest(urls[i]).content)
 	io.close(file)
 	end
 	gg.toast("✅ تم تركيب الملف بنجاح ✅")
-colse () 
+	-- إنشاء الملف stars_lucky.txt
+	local file = io.open(GameInfo.dataDir .. "/Resources/scripts/vip/stars_lucky.txt", "w")
+        file:write("lucky Done ✅")
+        file:close()
+        close()
 end
 ---------حذف ملف الحظ---------
 function rm_file_luck() 
 	gg.setVisible(false)
-       files={'/data/data/com.funplus.familyfarm/Resources/scripts/common/util.lua', '/data/data/com.funplus.familyfarm/Resources/scripts/common/switch.lua',}
+       files={GameInfo.dataDir .. '/Resources/scripts/common/util.lua', GameInfo.dataDir .. '/Resources/scripts/common/switch.lua',}
 for i=1 ,#files do
 os.remove(files[i])
 end
 gg.toast("✅ تم حذف الملف بنجاح ✅")
+os.remove(GameInfo.dataDir .. "/Resources/scripts/vip/stars_lucky.txt") -- حذف الملف stars_lucky.txt
 colse () 
 end
 
@@ -551,28 +612,23 @@ function special_tasks()gg.setVisible(false)
 speci = gg.choice(other_tasks,nil,hh)
 if speci == nil then ex(4)end
 if speci ==  1  then daily_tasks() end --المهام اليومية
-if speci ==  2  then koshk() end --الكشك
-if speci ==  3  then hospital() end --المشفي
-if speci ==  4  then factories() end --الغاء تحميل المصانع
-if speci ==  5  then NOGOM('h6C696D69745F636F6E6669675F6E6577',1,nil,10000,'0',1,nil,1,1) end --فاعلية التلقائي
-if speci ==  6  then NOGOM('1E;3E;2E;20E;4E;5E;6E;14E::999',64,'1',100,'0',1,1,1,1)  end --فتح ثلاث نجوم الزوار
-if speci ==  7  then NOGOM('467D;1E::5',64,'1',100,'0',1,1,1,1) NOGOM('36;162;1095',64,nil,100,'0',1,nil,1,1) end -- جوازات السفر ب 0 نقود
-if speci ==  8  then NOGOM('h666973685F6A756D705F706F776572',1,nil,10000,'0',1,nil,1,1) NOGOM('h666973685F7374616D696E615F67726F777468',1,nil,10000,'0',1,nil,1,1) NOGOM('h666973685F6C7631',1,nil,10000,'0',1,nil,1,1) NOGOM('h666973685F6C7632',1,nil,10000,'0',1,nil,1,1) end --تثبيت صنارة الصيد بالمنتصف
-if speci ==  9  then NOGOM('8,245,935,277,855,761,735',32,nil,10000 ,'0', 1,nil,1,1) NOGOM('h6572726F72',1,nil,10000 ,'0', 1,nil,1,1) end -- تدمير الخطأ
-if speci ==  10 then NOGOM('1;10;60',64,'1',100,'0',1,1,1,1) end --المجتمع
-if speci ==  11 then NOGOM('80;600;1800',4,nil,100,'0',1,nil,1,1) end --فتح ثلاث نجوم آلات الجزيرة
-if speci ==  12 then NOGOM('500',64,nil,1000,'0',1,nil,1,1) NOGOM('1400',64,nil,1000,'0',1,nil,1,1) NOGOM('2500',64,nil,1000,'0',1,nil,1,1) NOGOM('2800',64,nil,1000,'0',1,nil,1,1) end --تخطي نقاط الجزيرة
-if speci ==  13 then NOGOM('75;90::5',64,'75',1000,'999999999',1,1,1,1) end --طاقة النافورة
-if speci ==  14 then HOME() end
+if speci ==  2  then hospital() end --المشفي
+if speci ==  3  then factories() end --الغاء تحميل المصانع
+if speci ==  4  then NOGOM('1E;3E;2E;20E;4E;5E;6E;14E::999',64,'1',100,'0',1,1,1,1)  end --فتح ثلاث نجوم الزوار
+if speci ==  5  then NOGOM('467D;1E::5',64,'1',100,'0',1,1,1,1) NOGOM('36;162;1095',64,nil,100,'0',1,nil,1,1) end -- جوازات السفر ب 0 نقود
+if speci ==  6  then NOGOM('8,245,935,277,855,761,735',32,nil,10000 ,'0', 1,nil,1,1) NOGOM('h6572726F72',1,nil,10000 ,'0', 1,nil,1,1) end -- تدمير الخطأ
+if speci ==  7  then NOGOM('1;10;60',64,'1',100,'0',1,1,1,1) end --المجتمع
+if speci ==  8  then NOGOM('80;600;1800',4,nil,100,'0',1,nil,1,1) end --فتح ثلاث نجوم آلات الجزيرة
+if speci ==  9  then HOME() end
 ex(4)
 end
 ----------------- المهام اليومية------------------
 function daily_tasks()
 	gg.setVisible(false)
-if file_exists("/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/data.lua") then 
-if not file_exists("/data/data/com.funplus.familyfarm/Resources/scripts/vip/Stars_DailyQuest.txt") then 
-	urls1={'https://dl.dropboxusercontent.com/scl/fi/mtooyqyqeyk5o56gpnlzt/controller.lua?rlkey=rrs5olad2g3irejw1auo8fjoe&dl=0','https://dl.dropboxusercontent.com/scl/fi/8xoqevktshhznvl2esw1j/data.lua?rlkey=ko5rxxsqx1wakgeaubwaye7b7&dl=0','https://dl.dropboxusercontent.com/scl/fi/ipwetpmeuxi4r1a6gqe2r/launcher.lua?rlkey=3wbzjek4xjzequ0ssc0fhtrkj&dl=0','https://dl.dropboxusercontent.com/scl/fi/iewmhu36ibq4sugmupdtr/questCell.lua?rlkey=w9jmobu5zfk0t5mawt4pkgamm&dl=0',}
-	files1={'/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/controller.lua','/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/data.lua','/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/launcher.lua','/data/data/com.funplus.familyfarm/Resources/scripts/daily_quest/questCell.lua',}
+if file_exists(GameInfo.dataDir .. "/Resources/scripts/daily_quest/data.lua") then 
+if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/Stars_DailyQuest.txt") then 
+	urls1={'https://bit.ly/3UvJomr','https://bit.ly/3QfJR9F','https://bit.ly/4aK7vDy','https://bit.ly/44bUNe6',}
+	files1={GameInfo.dataDir .. '/Resources/scripts/daily_quest/controller.lua',GameInfo.dataDir .. '/Resources/scripts/daily_quest/data.lua',GameInfo.dataDir .. '/Resources/scripts/daily_quest/launcher.lua',GameInfo.dataDir .. '/Resources/scripts/daily_quest/questCell.lua',}
 	for i=1, #urls1 do
 	    getalldata= (gg.makeRequest(urls1[i]).content)
 		file = io.open(files1[i], "wb")
@@ -580,7 +636,7 @@ if not file_exists("/data/data/com.funplus.familyfarm/Resources/scripts/vip/Star
 		io.close(file)
 	end
 	gg.toast("✅ تم تركيب الملف بنجاح ✅")
-	file = io.open("/data/data/com.funplus.familyfarm/Resources/scripts/vip/Stars_DailyQuest.txt", "wb")
+	file = io.open(GameInfo.dataDir .. "/Resources/scripts/vip/Stars_DailyQuest.txt", "wb")
 	file:write("DailyQuest Done ✅")
     io.close(file)
     colse () 
@@ -588,20 +644,12 @@ end
 end
 NOGOM("27000~27099E;1~2000E",64, "1~2000",500,"0",1,1,1,1)
 end
---------------فتح الكشك بعد غلقه-------------
-function koshk()
-gg.setVisible(false)
-gg.alert("")
-promp2 = gg.prompt({"✰ ادخل عدد المنتجات الذي اغلق الكشك عندها ✰"},{""},{"number"})
-if promp2 == nil then special_tasks() end
-NOGOM (promp2[1],64,nil,17000,'-100',1,nil,1,1)
-end
 ----------------المشفي--------------------
 function hospital()
 	gg.setVisible(false)
-urls2={'https://drive.google.com/uc?export=download&id=1SV4SGwnNPZQqX9Mn10f4zyfmqkJqY3HH'}
-files2={'/data/data/com.funplus.familyfarm/Resources/scripts/common/LuaMgr.lua'}
-if not file_exists("/data/data/com.funplus.familyfarm/Resources/scripts/vip/stars_Hospital.txt") then
+urls2={'https://bit.ly/3WcbYdv'}
+files2={GameInfo.dataDir .. '/Resources/scripts/common/LuaMgr.lua'}
+if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_Hospital.txt") then
     hosp = gg.alert("💫 تركيب ملف المشفي 💫","✅ تركيب ✅",""," رجوع ↩️")
     
     if hosp == 1 then 
@@ -613,7 +661,7 @@ if not file_exists("/data/data/com.funplus.familyfarm/Resources/scripts/vip/star
 		end
         gg.toast("✅ تم تركيب الملف بنجاح ✅")
         -- إنشاء الملف stars_hospital.txt
-        local file = io.open("/data/data/com.funplus.familyfarm/Resources/scripts/vip/stars_Hospital.txt", "w")
+        local file = io.open(GameInfo.dataDir .. "/Resources/scripts/vip/stars_Hospital.txt", "w")
         file:write("Hospital Done ✅")
         file:close()
         close()
@@ -621,7 +669,7 @@ if not file_exists("/data/data/com.funplus.familyfarm/Resources/scripts/vip/star
         special_tasks()
     end
 else
-    hosp = gg.alert("💫 لقد قمت بتركيب الملف بنجاح 💫\n💫 تفعيل :- تفعيل إطعام الحيوانات 💫\n💫 إلغاء تركيب :- لحذف الملف 💫","💥 تفعيل 💥","❎ الغاء تركيب ❎"," رجوع ↩️")
+    hosp = gg.alert("💫 لقد قمت بتركيب الملف بنجاح 💫","💥 تفعيل 💥","❎ الغاء تركيب ❎"," رجوع ↩️")
     
     if hosp == 1 then 
         NOGOM('3E;49285D::13',64,'3',300,'4',1,1,1) 
@@ -630,7 +678,7 @@ else
 		os.remove(files2[i])
 		end
 		gg.toast("✅ تم حذف الملف بنجاح ✅")
-        os.remove("/data/data/com.funplus.familyfarm/Resources/scripts/vip/stars_Hospital.txt") -- حذف الملف stars_hospital.txt
+        os.remove(GameInfo.dataDir .. "/Resources/scripts/vip/stars_Hospital.txt") -- حذف الملف stars_hospital.txt
         close()
     elseif hosp == 3 then special_tasks()
     end
@@ -642,9 +690,9 @@ end
 end
 -------------الغاء تحميل المصانع---------------
 function factories()
-if file_exists("/data/data/com.funplus.familyfarm/Resources/scripts/production_house/controller.lua") then 
-	urls3={'https://dl.dropboxusercontent.com/scl/fi/32o8rornklzocg5ve6aoy/controller.lua?rlkey=2tf5q34m87x2uryj06m2yy4rf&dl=0','https://dl.dropboxusercontent.com/scl/fi/o2qzlkisqr6fe5dygtn0g/materialCell.lua?rlkey=j1s3zy05jfjdlgjgcvcqg4enw&dl=0',}
-	files3={'/data/data/com.funplus.familyfarm/Resources/scripts/production_house/controller.lua','/data/data/com.funplus.familyfarm/Resources/scripts/production_house/materialCell.lua',}
+if file_exists(GameInfo.dataDir .. "/Resources/scripts/production_house/controller.lua") then 
+	urls3={'https://bit.ly/49Rw8gj','https://bit.ly/3U7K4wR',}
+	files3={GameInfo.dataDir .. '/Resources/scripts/production_house/controller.lua',GameInfo.dataDir .. '/Resources/scripts/production_house/materialCell.lua',}
 	for i=1, #urls3 do
 	    getalldata2= (gg.makeRequest(urls3[i]).content)
 		file = io.open(files3[i], "wb")
@@ -823,7 +871,7 @@ function changeFarms()gg.setVisible(false)
 		local UF
 		invalidChar= '*/\':?|<>'
 		
-		function FF_Choice () GameInfo=gg.getTargetInfo()
+		function FF_Choice ()
 		if string.find(GameInfo.cmdLine,'tango')  
 			then
 				 UserMenuFile = '/data/data/FT Accounts.txt'
@@ -986,86 +1034,6 @@ function changeFarms()gg.setVisible(false)
     end
 end
 
-function FileExport_p1_1()
-		 
-		 local err = 'False'
-		  NotAllowed = {}
-		  for i = 1, #invalidChar do
-			 NotAllowed[i] = invalidChar : sub(i, i)
-		   end
-		
-		   UI=gg.prompt
-				 (
-				   {'🌟 قـم بـتـسـمـيـــة المزرعة :'},
-				   {[1]=''},{[1]='text'}
-				 )
-			if UI == nil
-			   then 
-			else--1
-			   if UI[1] =='' or UI[1]==' ' then 
-				 gg.alert ('❔ رجـــاءً قــم بـإدخــال الإســم أولاً ..')
-			   else --2
-				  for i = 1,#NotAllowed do
-					if string.match(UI[1],NotAllowed[i])
-					  then 
-						 err = 'True'
-						 gg.alert('🚫 خـطـاء فـي الـتـسـمـية .. قـم بـتـسـمـية المزرعة بدون اسـتـخدام احد هذه الرمــوز : \n'..invalidChar)
-						 break
-					  end--IF
-				   end--FOR
-				  if err == 'False' then FileExport_p2_1(UI[1]) end
-				end--Else2      
-			end--Else1
-		end
-
-function FileExport_p2_1(Fname)
-		
-			local FF_UserFileName = ''
-			local size = #Contents
-		   IsExest = ''  
-		   if size ~= 0 
-			 then
-				for i = 1 ,#Contents do
-					if Contents[i] == Fname
-						then 
-						   IsExest = 'True'
-						   break
-					  else
-						   IsExest = 'False'
-					end --Else
-				 end --FOR
-			end--IF
-		
-		   if IsExest == 'False' or size == 0
-			  then 
-				 FF_UserFileName ='/data/data/'.. Fname..'.xml'
-				 local OK = FileTransfer(filePath, FF_UserFileName)
-				 if OK == 'false'
-				   then
-				 else 
-					   table.insert(Contents,Fname)
-					   UF , error= io.open(UserMenuFile, 'a+')
-					   UF:write(Fname,'\n')
-					   UF:close()
-				 end
-			end --IF
-		
-		   if IsExest == 'True'
-			   then
-				 msg = gg.alert('❗توجد مزرعة اخرى تحمل نفس الاسم .. هل تريد  استبدالها بالمزرعة الجديدة؟ ','اسـتـبــــدال','','إلـغـــاء')
-				 if msg == nil
-					 then
-				 else --Else2
-					 if msg == 1 then
-						FF_UserFileName = Fname..'.xml'
-						FileTransfer(filePath, FF_UserFileName)
-					end
-					 if msg == 3 then
-						 FF_Users()  
-					 end
-				  end --EndElse2 
-		   end --EndIF 
-end
 		function OpenUserFromFile()
     local path = gg.prompt({"📂 برجــــاء اخـتــيـار يـــوزر الــمزرعـــة المــــراد فـتـحـهــا  :"},{gg.EXT_STORAGE},{"file"})
     if path == nil or path[1] == '' or not string.match(path[1], "%....$") then
@@ -1077,16 +1045,14 @@ end
         
         -- إذا اختار نعم، يطلب منه إدخال اسم المزرعة وينفذ الدالة FileExport_p1()
         if choice == 1 then
-        	local filePath = path[1]
-        	FileExport_p1_1(filePath)
+        
         elseif choice == 3 then
         	Srce = path[1]
 			Destin = FF_UserDefult
 			FileTransfer(Srce, Destin)
 			gg.alert('ســوف يــتــم اغـــــلاق اللــعـبـه الان ✖️⛔')
 			gg.processKill ()
-			print("Selected File Path:", Sorce)
-		else gg.alert("تم الإلغاء")
+		else return
         end
         end
     end
@@ -1296,7 +1262,28 @@ else gg.alert("‼️ لا يوجد نتائج مطابقة للبحث ... قم 
     end
 end -- END WHILE 
 end -- END FUN
--------------------------------------------HOME(9)------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------HOME_VIP(9)--------------------------------------------------------------------------------------------------------------------
+function vip()gg.setVisible(false)
+vipMenu = gg.choice(list_vip,nil,hh)
+if vipMenu == nil then ex(10) end
+if vipMenu == 1 then koshk() end --الكشك
+if vipMenu == 2 then NOGOM('h666973685F6A756D705F706F776572',1,nil,10000,'0',1,nil,1,1) NOGOM('h666973685F7374616D696E615F67726F777468',1,nil,10000,'0',1,nil,1,1) NOGOM('h666973685F6C7631',1,nil,10000,'0',1,nil,1,1) NOGOM('h666973685F6C7632',1,nil,10000,'0',1,nil,1,1) end --تثبيت صنارة الصيد بالمنتصف
+if vipMenu == 3 then NOGOM('h6C696D69745F636F6E6669675F6E6577',1,nil,10000,'0',1,nil,1,1) end --فاعلية التلقائي
+if vipMenu == 4 then NOGOM('500',64,nil,1000,'0',1,nil,1,1) NOGOM('1400',64,nil,1000,'0',1,nil,1,1) NOGOM('2500',64,nil,1000,'0',1,nil,1,1) NOGOM('2800',64,nil,1000,'0',1,nil,1,1) end --تخطي نقاط الجزيرة
+if vipMenu == 5 then NOGOM('75;90::5',64,'75',1000,'999999999',1,1,1,1) end --طاقة النافورة
+if vipMenu == 6 then HOME() end 
+ex(10)
+end
+--------------فتح الكشك بعد غلقه-------------
+function koshk()
+gg.setVisible(false)
+gg.alert("")
+promp2 = gg.prompt({"✰ ادخل عدد المنتجات الذي اغلق الكشك عندها ✰"},{""},{"number"})
+if promp2 == nil then special_tasks() end
+NOGOM (promp2[1],64,nil,17000,'-100',1,nil,1,1)
+end
+-------------------------------------------HOME(10)----------------------------------------------------------------------------------------------------------------------
+
 function help_menu_2()
 
 function get_index(arr, word)
@@ -1458,6 +1445,7 @@ gg.toast("✰تم التعديل✰")end
 	THSH = -1
 	gg.skipRestoreState()
 	gg.setVisible(false)
+	gg.toast("تٌــــــــــ ✰فُريَّّقُ هِّکَْر آلََنٌِجَّوٌُمًِـ✰ ــــــــــمً")
     while true do
 	    if gg.isVisible(true) then
 		    THSH = 1
@@ -1465,15 +1453,16 @@ gg.toast("✰تم التعديل✰")end
 	    end
 	    if THSH == 1 then
 	        gg.setVisible(true)
-		    if     z == 1 then HOME_ALL()
-		    elseif z == 2 then speed_luck()
-		    elseif z == 3 then animals()
-		    elseif z == 4 then special_tasks()
-		    elseif z == 5 then buy()
-		    elseif z == 6 then plants()
-		    elseif z == 7 then changeFarms()
-		    elseif z == 8 then store()
-		    elseif z == 9 then m3()
+		    if     z == 1  then HOME_ALL()
+		    elseif z == 2  then speed_luck()
+		    elseif z == 3  then animals()
+		    elseif z == 4  then special_tasks()
+		    elseif z == 5  then buy()
+		    elseif z == 6  then plants()
+		    elseif z == 7  then changeFarms()
+		    elseif z == 8  then store()
+		    elseif z == 9  then m3()
+			elseif z == 10 then vip()
 		    else
 	           HOME ()
 	       end
