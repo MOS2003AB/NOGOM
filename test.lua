@@ -1503,14 +1503,14 @@ function close ()
 				 elseif choice == 1 then gg.processKill () os.exit()
 				 elseif choice == 2 then return end 
 		end
-while true do
-  if gg.isVisible(true) then
-    THSH = 1
-    gg.setVisible(false)
-  end
-  gg.clearResults()
-  if THSH == 1 then
-    HOME()
- end
- end
+--while true do
+ -- if gg.isVisible(true) then
+   -- THSH = 1
+   -- gg.setVisible(false)
+ -- end
+--  gg.clearResults()
+--  if THSH == 1 then
+ --   HOME()
+ --end
+-- end
 -- END SCRIPT --
