@@ -497,7 +497,7 @@ os.remove(files[i])
 end
 gg.toast("✅ تم حذف الملف بنجاح ✅")
 os.remove(GameInfo.dataDir .. "/Resources/scripts/vip/stars_lucky.txt") -- حذف الملف stars_lucky.txt
-colse () 
+close () 
 end
 
 ----------------------------------HOME_animals(3)-----------------------------------------------------------
@@ -642,7 +642,7 @@ if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/Stars_DailyQuest.
 	file = io.open(GameInfo.dataDir .. "/Resources/scripts/vip/Stars_DailyQuest.txt", "wb")
 	file:write("DailyQuest Done ✅")
     io.close(file)
-    colse () 
+    close () 
 end
 end
 NOGOM("27000~27099E;1~2000E",64, "1~2000",500,"0",1,1,1,1)
@@ -702,7 +702,7 @@ if file_exists(GameInfo.dataDir .. "/Resources/scripts/production_house/controll
 		file:write(getalldata2)
 		io.close(file)
 		end
-	colse () 
+	close () 
 end
 end
 ------------------------------------------HOME_BUY(5)-------------------------------------------------------------------------------------------------
@@ -1049,7 +1049,7 @@ end
         -- إذا اختار نعم، يطلب منه إدخال اسم المزرعة وينفذ الدالة FileExport_p1()
         if choice == 1 then
         
-        elseif choice == 3 then
+        elseif choice == 2 then
         	Srce = path[1]
 			Destin = FF_UserDefult
 			FileTransfer(Srce, Destin)
@@ -1503,7 +1503,6 @@ function close ()
 				 elseif choice == 1 then gg.processKill () os.exit()
 				 elseif choice == 2 then return end 
 		end
-		
 while true do
   if gg.isVisible(true) then
     THSH = 1
