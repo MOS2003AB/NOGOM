@@ -1,142 +1,111 @@
---local path = gg.EXT_STORAGE
---local GameInfo=gg.getTargetInfo()
---local DownloadPath = path .. "/Download/"
---local currentPackage = gg.PACKAGE
---if currentPackage ~= "com.elngome" then
---local packageName = "com.elngome"
---local isPackageInstalled = gg.isPackageInstalled(packageName)
+local path = gg.EXT_STORAGE
+local GameInfo=gg.getTargetInfo()
+local DownloadPath = path .. "/Download/"
+local currentPackage = gg.PACKAGE
 
---if isPackageInstalled then
+-- دالة التحقق من النسخة المشغلة
+function check()
+if currentPackage ~= "com.elngome" then
+local packageName = "com.elngome"
+local isPackageInstalled = gg.isPackageInstalled(packageName)
+
+if isPackageInstalled then
        -- إذا كان التطبيق مثبتًا، يتم عرض رسالة للمستخدم
---gg.alert("                      ⚠️ انت لا تستخدم الجيم جاردن الخاص بفريق النجوم. ⚠️\n⚠️ من فضلك قم باستخدام الجيم جاردن الخاص بفريق النجوم حتي تستطيع تشغيل الملف ⚠️") return
---else
+gg.alert("                      ⚠️ انت لا تستخدم الجيم جاردن الخاص بفريق النجوم. ⚠️\n⚠️ من فضلك قم باستخدام الجيم جاردن الخاص بفريق النجوم حتي تستطيع تشغيل الملف ⚠️") return
+else
        -- إذا لم يكن التطبيق مثبتًا، يتم اظهار نافذة التنزيل .
---local Url = "https://dl.dropboxusercontent.com/scl/fi/jttirbe5k0ncnjqwrwesv/base.apk?rlkey=pom09n9aybqqirz7mc3mx1ndp&dl=0"
---local Name = "Stars-GG.apk"
+local Url = "https://dl.dropboxusercontent.com/scl/fi/jttirbe5k0ncnjqwrwesv/base.apk?rlkey=pom09n9aybqqirz7mc3mx1ndp&dl=0"
+local Name = "Stars-GG.apk"
 
---local Download = 0
---local SuDown = "✨ شكراً لك على تحميل الجيم جاردن الخاص بنا ✨\n✨ ستجد الملف في هذا المسار:-"..DownloadPath.. "✨\n✨ اسم الملف:- "..Name.." ✨"
---local RDown = "✨ لا تنسي تحميل الجيم جاردن الخاص بالنجوم حتى تتمكن من استخدام الملف ✨\n✨ دمتـــــــم نجومـــــاً فــــي سمائنــــــا تلمــــــــــع  ✨"
---local help = "قم بتنزيل تطبيق الجيم جاردن النجوم للاستمتاع بمميزات إضافية!\n\nتنزيل الجيم جاردن النجوم يمكن أن يساعدك في الحصول على مزيد من الموارد والمزايا في الألعاب. قم بالتحميل الآن للاستفادة الكاملة من اللعبة!"
---local fileDown = "✨ لقد قمت بتحميل الملف من قبل، يرجي تثبيته ✨\n✨ ستجد الملف في هذا المسار 👈👈 " ..DownloadPath.. " ✨\n✨ اسم الملف:- " ..Name.. " ✨"
---local internet = "🌐 لا يوجد اتصال بالانترنت، من فضلك حاول مرة اخري 🌐"
+local Download = 0
+local SuDown = "✨ شكراً لك على تحميل الجيم جاردن الخاص بنا ✨\n✨ ستجد الملف في هذا المسار:-"..DownloadPath.. "✨\n✨ اسم الملف:- "..Name.." ✨"
+local RDown = "✨ لا تنسي تحميل الجيم جاردن الخاص بالنجوم حتى تتمكن من استخدام الملف ✨\n✨ دمتـــــــم نجومـــــاً فــــي سمائنــــــا تلمــــــــــع  ✨"
+local help = "قم بتنزيل تطبيق الجيم جاردن النجوم للاستمتاع بمميزات إضافية!\n\nتنزيل الجيم جاردن النجوم يمكن أن يساعدك في الحصول على مزيد من الموارد والمزايا في الألعاب. قم بالتحميل الآن للاستفادة الكاملة من اللعبة!"
+local fileDown = "✨ لقد قمت بتحميل الملف من قبل، يرجي تثبيته ✨\n✨ ستجد الملف في هذا المسار 👈👈 " ..DownloadPath.. " ✨\n✨ اسم الملف:- " ..Name.. " ✨"
+local internet = "🌐 لا يوجد اتصال بالانترنت، من فضلك حاول مرة اخري 🌐"
 
---while Download ~= 3 do
---Download = gg.alert("⚠️ أنت لا تستخدم الجيم جاردن الخاص بفريق النجوم ⚠️", "📥 تنزيل جيم جاردن النجوم 📥","🔑 مساعدة 🔑", "❌ خروج ❌")
---if Download == 1 then
+while Download ~= 3 do
+Download = gg.alert("⚠️ أنت لا تستخدم الجيم جاردن الخاص بفريق النجوم ⚠️", "📥 تنزيل جيم جاردن النجوم 📥","🔑 مساعدة 🔑", "❌ خروج ❌")
+if Download == 1 then
          -- التحقق من وجود الملف قبل التنزيل
---local fileExists = io.open(DownloadPath..Name, "r")
---if fileExists then
---io.close(fileExists)
---gg.alert(fileDown)
---else
---local Time = os.clock()
---local DownloadGG = gg.makeRequest(Url).content
---if DownloadGG == nil then
---gg.alert(internet) return
---else
---local file = io.open(DownloadPath..Name, "w")
---file:write(DownloadGG)
---file:close()
+local fileExists = io.open(DownloadPath..Name, "r")
+if fileExists then
+io.close(fileExists)
+gg.alert(fileDown)
+else
+local Time = os.clock()
+local DownloadGG = gg.makeRequest(Url).content
+if DownloadGG == nil then
+gg.alert(internet) return
+else
+local file = io.open(DownloadPath..Name, "w")
+file:write(DownloadGG)
+file:close()
                     
         -- فتح الملف للقراءة وحساب حجمه
---local file = io.open(DownloadPath..Name, "rb")
---file:seek("end")
---local FileSize = file:seek()
---file:close()
+local file = io.open(DownloadPath..Name, "rb")
+file:seek("end")
+local FileSize = file:seek()
+file:close()
 
---local fileSizeFormatted = FileSize .. " Bytes"
---local fileSize = 1.0 * FileSize
---      if fileSize > 1024 then
---      fileSizeFormatted = string.format("%.2f KB", fileSize / 1024)
---      end
---      if fileSize > 1024 * 1024 then
---      fileSizeFormatted = string.format("%.2f MB", fileSize / (1024 * 1024))
---      end
---gg.toast("تم التنزيل بنجاح✔️")
---gg.sleep(2500)
---gg.toast("مسار التنزيل: " .. DownloadPath)
---gg.sleep(2500)
---gg.toast("وقت التنزيل: " .. string.format("%.2f ثانية", os.clock() - Time))
---gg.sleep(2500)
---gg.alert(SuDown.."\n✨ حجم الملف:- " .. fileSizeFormatted .. "✨") end end return
---elseif Download == 2 then gg.alert(help)
---elseif Download == 3 then print(RDown) return
---else print(RDown) return end
---end
---end
---end
-
+local fileSizeFormatted = FileSize .. " Bytes"
+local fileSize = 1.0 * FileSize
+      if fileSize > 1024 then
+      fileSizeFormatted = string.format("%.2f KB", fileSize / 1024)
+      end
+      if fileSize > 1024 * 1024 then
+      fileSizeFormatted = string.format("%.2f MB", fileSize / (1024 * 1024))
+      end
+gg.toast("تم التنزيل بنجاح✔️")
+gg.sleep(2500)
+gg.toast("مسار التنزيل: " .. DownloadPath)
+gg.sleep(2500)
+gg.toast("وقت التنزيل: " .. string.format("%.2f ثانية", os.clock() - Time))
+gg.sleep(2500)
+gg.alert(SuDown.."\n✨ حجم الملف:- " .. fileSizeFormatted .. "✨") end end return
+elseif Download == 2 then gg.alert(help)
+elseif Download == 3 then print(RDown) return
+else print(RDown) return end
+end
+end
+end
+end
+-- دالة البداية والدخول
+function password()
 gg.setVisible(false)
   local code = math.random(100, 900)
 local passwordEntered = false
 while not passwordEntered do
   local pass = gg.prompt({"   🔐 Enter Password 🔐:-" .. code .. " !"}, { [1] = " 🔐Password🔐" }, { [1] = "number" })
-  if not pass then return end
+  if not pass then os.exit() end
   if pass[1] .. "0" == code .. "0" then passwordEntered = true
     gg.toast("✔️ Cᴏʀʀᴇᴄᴛ Pᴀssᴡᴏʀᴅ ✔️\n        🔓 Wᴇʟᴄᴏᴍᴇ 🔓")
   else
     gg.alert("❌ Wʀᴏɴɢ Pᴀssᴡᴏʀᴅ Pʟᴇᴀsᴇ Tʀʏ Aɢᴀɪɴ! ❌")
   end
 end
-------------------------------------Processes---------------------------------------------------------------
-	
- function NOGOM(search,type,refine,results,edit,S,R,E,C) gg.setVisible(false)
-	srch = tostring (search)
-    rfn = tostring (refine)          
-    edt = tostring (edit)
-	if S == 1 then gg.searchNumber(srch , type, false, 536870912, 0, -1, 0) end
-	if R ==1 then gg.refineNumber(rfn ,type,false,536870912,0,-1,0) end
-    local foundResults = gg.getResults(results, nil, nil, nil, nil, nil, nil, nil, nil)
-    if #foundResults == 0 then gg.alert(search_again) end
-	if E == 1 then gg.editAll(edt, type) end
-	if C == 1 then gg.clearResults() end
-end
-------------------------------------------HOME----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 gg.alert("\t\t\t\t\t\t\t╔╰❥❣✰═════✬⋆✪⋆✬═════✰❣✿╗\n\t\t\t\t\t\t\t↣╰❥❣✰══✬⋆﷽⋆✬══✰❣✿ \n\t\t\t\t\t\t\t╚╰❥❣✰═══✬⋆ELNGOME⋆✬═══✰❣✿╝") 
-gg.alert(os.date("\t\t\t\t\t📅 %d %B %Y        \t\t\t\t\t\t\t\t\t🕐%I:%M:%S\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t♛★صلي على النبي★♛ \n\n\t\t\t\t\t\t\t\t\t\t♛★اللهم صّلِ وسَلّمْ عَلۓِ نَبِيْنَامُحَمد ﷺ★♛"))
+gg.alert("♛★ صـلـــــي عـلــــــى الـنـبـــي ★♛ \n♛★ اللــهـم صّــــلِ وسَـلّــــمْ عَــــــلۓِ نَــبِـيْـنَـا مُــحَــمــد ﷺ ★♛")
+if os.date("%A") == "Friday" then gg.alert(friday[math.random(1, #friday)]) gg.alert("قال رسول الله ﷺ: (مَنْ قَرَأَ سورة الكهفِ يومَ الجمعةِ أَضاءَ له مِنَ النُّورِ ما بيْنَ الجُمعتينِ).\nرواه الحاكم، في المستدرك على الصحيحين، عن أبي سعيد الخدري") end
 gg.setVisible(false)
-gg.sleep(200)
-gg.toast("Loading.. ")
-gg.sleep(200)
-gg.toast("▒▒▒▒▒0%▒▒▒▒▒")
-gg.sleep(150)
-gg.toast("▓▒▒▒▒10%▒▒▒▒▒")
-gg.sleep(100)
-gg.toast("▓▓▒▒▒20%▒▒▒▒▒")
-gg.sleep(150)
-gg.toast("▓▓▓▒▒30%▒▒▒▒▒")
-gg.sleep(150)
-gg.toast("▓▓▓▓▒40%▒▒▒▒▒")
-gg.sleep(150)
-gg.toast("▓▓▓▓▓50%▒▒▒▒▒")
-gg.sleep(150)
-gg.toast("▓▓▓▓▓60%▓▒▒▒▒")
-gg.sleep(150)
-gg.toast("▓▓▓▓▓70%▓▓▒▒▒")
-gg.sleep(150)
-gg.toast("▓▓▓▓▓80%▓▓▓▒▒")
-gg.sleep(150)
-gg.toast("▓▓▓▓▓90%▓▓▓▓▒")
-gg.sleep(150)
-gg.toast("▓▓▓▓▓100%▓▓▓▓▓")
-gg.sleep(200)
-gg.toast("E")
-gg.sleep(200)
-gg.toast("EL")
-gg.sleep(200)
-gg.toast("ELN")
-gg.sleep(200)
-gg.toast("ELNG")
-gg.sleep(200)
-gg.toast("ELNGO")
-gg.sleep(200)
-gg.toast("ELNGOM")
-gg.sleep(200)
-gg.toast("ELNGOME")
-
-hh=(os.date("\t\t\t\t\t\t\t\t\t📅 %d %B %Y       \t\t\t\t\t\t\t\t\t🕐%I:%M:%S \n\t\t\t\t\t╔╰❥❣✰═══════✬⋆✪⋆✬═══════✰❣✿╗\n\t\t\t\t\t    ↣╰❥❣✰═══✬⋆SCRIPT ELNGOME⋆✬═══✰❣✿ \n\t\t\t\t\t╚╰❥❣✰═════✬⋆ELNGOME⋆✬═════✰❣✿╝"))
---header = math.random(hh)
+B={'░', '░', '░', '░', '░', '░', '░', '░', '░', '░'} -- LOADING TABLE 
+BE = 0
+for i=0, 10, 1 do
+	if gg.isVisible(true) and i ~= 10 then
+		gg.setVisible(true)
+	end
+	gg.sleep(300)
+	gg.toast('⌛Lᴏᴀᴅɪɴɢ :'..B[1]..B[2]..B[3]..B[4]..B[5]..B[6]..B[7]..B[8]..B[9]..B[10]..' '..BE..'%')
+	BE = BE + 10
+	table.remove(B)
+	table.insert(B, 1, "▓")
+	if i == 10 then gg.sleep(200)
+	end
+end
+end
+friday = {"عن أوس بن أوسٍ رضي الله عنه،  قَالَ: قالَ رسولُ اللَّه ﷺ: إنَّ مِن أَفْضلِ أيَّامِكُمْ يَوْمَ الجُمُعةِ، فَأَكْثِرُوا عليَّ مِنَ الصلاةِ فِيهِ، فإنَّ صَلاتَكُمْ معْرُوضَةٌ علَيَّ فقالوا: يَا رسول اللَّه، وكَيْفَ تُعرضُ صلاتُنَا عليْكَ وقدْ أرَمْتَ؟ قال: يقولُ: بَلِيتَ، قالَ: إنَّ اللَّه حَرم عَلَى الأرْضِ أجْساد الأنْبِياءِ.\nرواهُ أَبُو داود بإسنادٍ صحيحِ","عنْ عبداللَّه بن عمرو بن العاص، رضي اللَّه عنْهُمَا أنَّهُ سمِع رسُول اللَّه ﷺ يقُولُ: مَنْ صلَّى عليَّ صلاَةً، صلَّى اللَّه علَيّهِ بِهَا عشْرًا.\nرواهُ مسلم","قال رسول الله ﷺ: (إِذَا كَانَ يَوْمُ الجُمُعَةِ، كَانَ عَلَى كُلِّ بَابٍ مِنْ أَبْوَابِ المَسْجِدِ المَلاَئِكَةُ، يَكْتُبُونَ الأَوَّلَ فَالأَوَّلَ، فَإِذَا جَلَسَ الإِمَامُ طَوَوُا الصُّحُفَ، وَجَاءُوا يَسْتَمِعُونَ الذِّكْرَ).\nرواه البخاري، في صحيح البخاري، عن أبي هريرة",}
+------------------------------------------HOME----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+hh = {"╔═❥❣✰════════════✬⋆✪⋆✬════════════✰❣❥═╗\n✿❣✰═════════✬☞ѕтαяѕ тєαм☜✬═════════✰❣✿\n╚═❥❣✰═════════✬⋆ ELNGOME ⋆✬═════════✰❣❥═╝","╔═❥❣✰════════════✬⋆✪⋆✬════════════✰❣❥═╗\n✿❣✰════════✬☞S͢t͢a͢r͢s͢ T͢e͢a͢m͢☜✬════════✰❣✿\n╚═❥❣✰═════════✬⋆ ELNGOME ⋆✬═════════✰❣❥═╝","╔═❥❣✰════════════✬⋆✪⋆✬════════════✰❣❥═╗\n✿❣✰════════✬☞S҉t҉a҉r҉s҉ T҉e҉a҉m҉☜✬════════✰❣✿\n╚═❥❣✰═════════✬⋆ ELNGOME ⋆✬═════════✰❣❥═╝","╔═❥❣✰════════════✬⋆✪⋆✬════════════✰❣❥═╗\n✿❣✰══════✬☞S͓̽t͓̽a͓̽r͓̽s͓̽ T͓̽e͓̽a͓̽m͓̽☜✬══════✰❣✿\n╚═❥❣✰═════════✬⋆ ELNGOME ⋆✬═════════✰❣❥═╝","╔═❥❣✰════════════✬⋆✪⋆✬════════════✰❣❥═╗\n✿❣✰════════✬☞₴₮₳Ɽ₴ ₮Ɇ₳₥☜✬════════✰❣✿\n╚═❥❣✰═════════✬⋆ ELNGOME ⋆✬═════════✰❣❥═╝","╔═❥❣✰════════════✬⋆✪⋆✬════════════✰❣❥═╗\n✿❣✰════✬☞⟅S⟆⟅t⟆⟅a⟆⟅r⟆⟅s⟆ ⟅T⟆⟅e⟆⟅a⟆⟅m⟆☜✬════✰❣✿\n╚═❥❣✰═════════✬⋆ ELNGOME ⋆✬═════════✰❣❥═╝","╔═❥❣✰════════════✬⋆✪⋆✬════════════✰❣❥═╗\n✿❣✰════════✬☞S̐t̐a̐r̐s̐ T̐e̐a̐m̐☜✬════════✰❣✿\n╚═❥❣✰═════════✬⋆ ELNGOME ⋆✬═════════✰❣❥═╝"}
 elngooom ={"『1』【 القسم الشامل📂 】","『2』【 قسم الحظ والتسريع 📂 】","『3』【 قسم الحيوانات الأليفة 📂 】","『4』【 قسم التفعيلات الخاصة 📂 】","『5』【 قسم شراء منتجات بنقود صفراء  📂 】","『6』【 قسم زرع المختبر 📂 】","『7』【 تبديل المزارع 📂 】","『8』【 متجر تطبيقات  📂 】","『9』【 قسم VIP  📂 】","✘ خروج ✘"} search_again = "‼️ لم يتم العثور علي نتائج بحث ... قم بإعادة البحث 🔁"
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------HOME_All(1)-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -283,7 +252,8 @@ cod1= {"『1』〘🔎 محرك البحث 🔍📝〙","『2』〘 كود ال�
 
 ------------------------------------------HOME---------------------------------------------
 function HOME() gg.setVisible(false)
-elngoom = gg.choice(elngooom,nil,hh)
+header = hh[math.random(1, #hh)]
+elngoom = gg.choice(elngooom,nil,header)
 if elngoom== nil then  else
 if elngoom==1  then HOME_ALL() end
 if elngoom==2  then speed_luck()end
@@ -300,14 +270,14 @@ ex(0)
   end
   ------------------------------------HOME_ALL(1)-----------------------------------------
 function HOME_ALL() gg.setVisible(false)
-allcho = gg.choice(allccho,nil,hh)
+allcho = gg.choice(allccho,nil,header)
 if allcho == nil then ex(1) end
 if allcho == 1 then developer() end
 if allcho == 2 then fake() end
-if allcho == 3 then NOGOM("h73697A655F79",1,nil,10000,'0',1,nil,1,1) end 
+if allcho == 3 then NOGOM("h 73 69 7A 65 5F 79",1,nil,10000,'0',1,nil,1,1) NOGOM("h 73 69 7A 65 5F 78",1,nil,10000,'0',1,nil,1,1) NOGOM("h 74 72 65 65 5F 73 70 61 63 69 6E 67",1,nil,10000,'0',1,nil,1,1) end 
 if allcho == 4 then NOGOM('200;1000',4,'1000',300,'9999999',1,1,1,1) NOGOM('200;1200',4,'1200',300,'9999999',1,1,1,1) end 
 if allcho == 5 then gg.alert(Cleaning_tickets)NOGOM('300;20',64,'20',300,'300',1,1,1,1) end
-if allcho == 6 then gg.alert(Khaled_house)  NOGOM('50000;5;1',4,'1',10000,'1000',1,1,1,1) NOGOM("h73697A655F79",1,nil,10000,'0',1,nil,1,1) gg.alert(donekhaledHouse)end
+if allcho == 6 then gg.alert(Khaled_house)  NOGOM('50000;5;1',4,'1',10000,'1000',1,1,1,1) NOGOM("h 73 69 7A 65 5F 79",1,nil,10000,'0',1,nil,1,1) NOGOM("h 73 69 7A 65 5F 78",1,nil,10000,'0',1,nil,1,1) gg.alert(donekhaledHouse)end
 if allcho == 7 then gg.alert(fish_tank) NOGOM('80;600;1800',4,nil,300,'0',1,nil,1,1) end
 if allcho == 8 then gg.alert(millionaire_cow) NOGOM('6001',4,nil,300,'590048',1,nil,1,1) end
 if allcho == 9 then HOME () end
@@ -315,7 +285,7 @@ ex(1)
  end
 ------------طلب مطورات من الجيران--------
 function developer () gg.setVisible(false)
-	gadgets_ch = gg.multiChoice(developer_gadgets,nil,hh)
+	gadgets_ch = gg.multiChoice(developer_gadgets,nil,header)
 if gadgets_ch == nil then else 
 if gadgets_ch[1] then
 	   for j = 2, 25 do
@@ -333,7 +303,7 @@ end
 -----------------دنانير وهمي-------------
 function fake() gg.setVisible(false)
 --	gg.alert("⛔️ سيتم اعادة فتحها قريبا ⛔️")
- typ = gg.choice(fake1,nil,hh)
+ typ = gg.choice(fake1,nil,header)
  if typ == nil then ex(1)  end
  if typ==1  then gg.alert(fakea) NOGOM ('590352;5',64,'5',17000,'-1000000',1,1,1,1) NOGOM ('41038;41040',64,nil,17000,'400009;74',1,nil,1,1) NOGOM ('590352;590353',64,nil,17000,'400009;74',1,nil,1,1) end
  if typ==2  then gg.alert(fakeB) NOGOM (':600027',1,nil,17000,':400009',1,nil,1,1) end
@@ -343,7 +313,7 @@ end
 ---------------------------------------HOME_speed_luck(2)----------------------------------------------------
 function speed_luck() gg.setVisible(false)
 	if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_lucky.txt") then
-   speedo_luck = gg.choice(list_luck,nil,hh)
+   speedo_luck = gg.choice(list_luck,nil,header)
 if speedo_luck == nil then ex(2) end
 if speedo_luck == 1 then seafood() end
 if speedo_luck == 2 then gg.unrandomizer(0) end
@@ -355,7 +325,7 @@ if speedo_luck == 7 then file_luck()end
 if speedo_luck == 8 then HOME() end
 ex(2)
 else
-speedo_luck = gg.choice(list_luck_rm,nil,hh)
+speedo_luck = gg.choice(list_luck_rm,nil,header)
 if speedo_luck == nil then ex(2) end
 if speedo_luck == 1 then seafood() end
 if speedo_luck == 2 then gg.unrandomizer(0) end
@@ -371,7 +341,7 @@ end
 ------------منزل المأكولات--------------
 function seafood() gg.setVisible(false)
 local seafood_list
-seafood_list = gg.multiChoice(list_seafood,nil,hh)
+seafood_list = gg.multiChoice(list_seafood,nil,header)
 if seafood_list == nil then else end
      if seafood_list [15] == true  then  end
      if seafood_list [1] == true then
@@ -427,35 +397,35 @@ end
 
 ----------تسريع المنطاد------------
 function pallon_speed() gg.setVisible(false)
-urls_1={'https://bit.ly/3xOR0HA','https://bit.ly/4aNCiiF','https://bit.ly/3xW0W1W'}
-files_1={GameInfo.dataDir .. '/Resources/scripts/pet_team/newPTData.lua',GameInfo.dataDir .. '/Resources/scripts/pet_team/newPTPet.lua','/data/data/com.funplus.familyfarm/Resources/scripts/pet_team/ptHUDIcon.lua'}
+urls={'https://bit.ly/3xOR0HA','https://bit.ly/4aNCiiF','https://bit.ly/3xW0W1W'}
+files={GameInfo.dataDir .. '/Resources/scripts/pet_team/newPTData.lua',GameInfo.dataDir .. '/Resources/scripts/pet_team/newPTPet.lua','/data/data/com.funplus.familyfarm/Resources/scripts/pet_team/ptHUDIcon.lua'}
 if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_PallonSpeed.txt") then
-    pallon = gg.alert("💫 تـركـيـب مـــلـف تـسـريــع المــنـطـاد 💫","✅ تــركـيـب ✅",""," رجـــوع ↩️")
+    pallon = gg.alert("⁉️ تـركـيـب مـــلـف تـسـريــع المــنـطـاد؟!.","✔ تــركـيـب ✔",""," رجـــوع ↩️")
     
     if pallon == 1 then 
-        for i=1, #urls_1 do
-	    getalldata_1= (gg.makeRequest(urls_1[i]).content)
-		file = io.open(files_1[i], "wb")
-		file:write(getalldata_1)
+        for i=1, #urls do
+	    getalldata= (gg.makeRequest(urls[i]).content)
+		file = io.open(files[i], "wb")
+		file:write(getalldata)
 		file:close()
 		end
-        gg.toast("✅ تـــم تــركـيـب المـــلـف بنــجــاح ✅")
+        gg.toast("✔ تـــم تــركـيـب المـــلـف بنــجــاح ✔")
         -- إنشاء الملف stars_PallonSpeed.txt
         local file = io.open(GameInfo.dataDir .. "/Resources/scripts/vip/stars_PallonSpeed.txt", "w")
-        file:write("Pallon Speed Done ✅")
+        file:write("Pallon Speed Done ✔")
         file:close()
         close()
     elseif pallon == 2 then 
         speed_luck()
     end
 else
-    pallon = gg.alert("💫 لــقـد قــمــت بتــركـيـب المـــلـف بنــجــاح 💫","❎ إلــغــاء تــركـيـب ❎",""," رجـــوع ↩️")
+    pallon = gg.alert("💫 لــقـد قــمــت بتــركـيـب المـــلـف بنــجــاح 💫","✘ إلــغــاء تــركـيـب ✘",""," رجـــوع ↩️")
     
     if pallon == 1 then 
-        for i=1 ,#files_1 do
-		os.remove(files_1[i])
+        for i=1 ,#files do
+		os.remove(files[i])
 		end
-		gg.toast("✅ تـــم حـــذف المـــلـف بنــجــاح ✅")
+		gg.toast("✔ تـــم حـــذف المـــلـف بنــجــاح ✔")
         os.remove(GameInfo.dataDir .. "/Resources/scripts/vip/stars_PallonSpeed.txt") -- حذف الملف stars_hospital.txt
         close()
     elseif pallon == 2 then speed_luck()
@@ -467,15 +437,15 @@ function file_luck() gg.setVisible(false)
 	urls={'https://dl.dropboxusercontent.com/scl/fi/tv57qex9i97itd9h82gnn/util.lua?rlkey=1tq4exptyz5kbi69ojggbkh6j&dl=0', 'https://dl.dropboxusercontent.com/scl/fi/4gqof86zc3g27jt18uolw/switch.lua?rlkey=p1hds9vdjfrf02k3p3qxesyio&dl=0',}
 	files={GameInfo.dataDir .. '/Resources/scripts/common/util.lua', GameInfo.dataDir .. '/Resources/scripts/common/switch.lua',}
 for i=1, #urls do
-alldata= (gg.makeRequest(urls[i]).content)
+getalldata= (gg.makeRequest(urls[i]).content)
 	file = io.open(files[i], "wb")
-	file:write(alldata)
+	file:write(getalldata)
 	io.close(file)
 	end
-	gg.toast("✅ تـــم تــركـيـب المـــلـف بنــجــاح ✅")
+	gg.toast("✔ تـــم تــركـيـب المـــلـف بنــجــاح ✔")
 	-- إنشاء الملف stars_lucky.txt
 	local file = io.open(GameInfo.dataDir .. "/Resources/scripts/vip/stars_lucky.txt", "w")
-        file:write("lucky Done ✅")
+        file:write("lucky Done ✔")
         file:close()
         close()
 end
@@ -485,13 +455,13 @@ function rm_file_luck() gg.setVisible(false)
 for i=1 ,#files do
 os.remove(files[i])
 end
-gg.toast("✅ تـــم حـــذف المـــلـف بنــجــاح ✅")
+gg.toast("✔ تـــم حـــذف المـــلـف بنــجــاح ✔")
 os.remove(GameInfo.dataDir .. "/Resources/scripts/vip/stars_lucky.txt") -- حذف الملف stars_lucky.txt
 close () 
 end
 ----------------------------------HOME_animals(3)-----------------------------------------------------------
 function animals() gg.setVisible(false)
-choices = gg.choice(list_choices,nil,hh)
+choices = gg.choice(list_choices,nil,header)
 if choices == nil then ex(3) end
 if choices  == 1  then m3() end
 if choices  == 2  then NOGOM('81001~81033;1::60',64,'1',9999,'0',1,1,1,1) end
@@ -502,7 +472,7 @@ ex(3)
 end
 ------------------------
 function m3() gg.setVisible(false)
-choices = gg.choice(clothes_list,nil,hh)
+choices = gg.choice(clothes_list,nil,header)
 if choices == nil then ex(9) end 
 if choices  ==  1 then mm1() end
 if choices  ==  2 then mm2() end
@@ -515,7 +485,7 @@ ex(9)
 end
 -------------------------------------------------------------------- 
 function mm1() gg.setVisible(false)
-mo = gg.choice(choices_1,nil,hh)
+mo = gg.choice(choices_1,nil,header)
 if mo == nil then ex(9)end 
 if mo  == 1  then NOGOM('83002',64,nil,1700,'86004',1,nil,1,1) end
 if mo  == 2  then NOGOM('83002',64,nil,1700,'86005',1,nil,1,1) end
@@ -528,7 +498,7 @@ ex(9)
 end
 ---------------------------------------------------------------------------------
 function mm2() gg.setVisible(false)
-oo = gg.choice(choices_1,nil,hh)
+oo = gg.choice(choices_1,nil,header)
 if oo == nil then ex(9) end
 if oo  == 1  then NOGOM('83002',64,nil,1700,'87006',1,nil,1,1) end
 if oo  == 2  then NOGOM('83002',64,nil,1700,'87007',1,nil,1,1) end
@@ -541,7 +511,7 @@ ex(9)
 end
 -----------------------------------------------------------------------
 function mm3() gg.setVisible(false)
-oo = gg.choice(choices_2,nil,hh)
+oo = gg.choice(choices_2,nil,header)
 if oo == nil then ex(9) end
 if oo  == 1  then NOGOM('83002',64,nil,1700,'85003',1,nil,1,1) end
 if oo  == 2  then NOGOM('83002',64,nil,1700,'85004',1,nil,1,1) end
@@ -555,7 +525,7 @@ ex(9)
 end
 -----------------------------------------------------------
 function mm4() gg.setVisible(false)
-o1o = gg.choice(choices_4,nil,hh)
+o1o = gg.choice(choices_4,nil,header)
 if o1o == nil then ex(9) end
 if o1o  == 1  then NOGOM('83002',64,nil,1700,'85002',1,nil,1,1) end
 if o1o  == 2  then NOGOM('83002',64,nil,1700,'85003',1,nil,1,1) end
@@ -576,7 +546,7 @@ ex(9)
 end
 ------------------------------------------------------------------------------
 function mm5() gg.setVisible(false)
-oo = gg.choice(choices_2,nil,hh)
+oo = gg.choice(choices_2,nil,header)
 if oo == nil then ex(9) end
 if oo == 1 then NOGOM('83002',64,nil,1700,'84004',1,nil,1,1) end
 if oo == 2 then NOGOM('83002',64,nil,1700,'84005',1,nil,1,1) end
@@ -589,7 +559,7 @@ ex(9)
 end
 ----------------------------------------------------------
 function mm6() gg.setVisible(false)
-oo = gg.choice(choices_3,nil,hh)
+oo = gg.choice(choices_3,nil,header)
 if oo == nil then ex(9) end
 if oo  == 1  then NOGOM('83002',64,nil,1700,'88004',1,nil,1,1) end
 if oo  == 2  then NOGOM('83002',64,nil,1700,'88005',1,nil,1,1) end
@@ -600,7 +570,7 @@ end
 ----------------------------------------HOME_special_tasks(4)----------------------------------------------------------
 
 function special_tasks() gg.setVisible(false)
-speci = gg.choice(other_tasks,nil,hh)
+speci = gg.choice(other_tasks,nil,header)
 if speci == nil then ex(4)end
 if speci ==  1  then daily_tasks() end --المهام اليومية
 if speci ==  2  then hospital() end --المشفي
@@ -615,33 +585,33 @@ ex(4)
 end
 ----------------- المهام اليومية------------------
 function daily_tasks() gg.setVisible(false)
-	urls1={'https://bit.ly/3UvJomr','https://bit.ly/3QfJR9F','https://bit.ly/4aK7vDy','https://bit.ly/44bUNe6',}
-	files1={GameInfo.dataDir .. '/Resources/scripts/daily_quest/controller.lua',GameInfo.dataDir .. '/Resources/scripts/daily_quest/data.lua',GameInfo.dataDir .. '/Resources/scripts/daily_quest/launcher.lua',GameInfo.dataDir .. '/Resources/scripts/daily_quest/questCell.lua',}
+	urls={'https://bit.ly/3UvJomr','https://bit.ly/3QfJR9F','https://bit.ly/4aK7vDy','https://bit.ly/44bUNe6',}
+	files={GameInfo.dataDir .. '/Resources/scripts/daily_quest/controller.lua',GameInfo.dataDir .. '/Resources/scripts/daily_quest/data.lua',GameInfo.dataDir .. '/Resources/scripts/daily_quest/launcher.lua',GameInfo.dataDir .. '/Resources/scripts/daily_quest/questCell.lua',}
 if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/Stars_DailyQuest.txt") then 
-	daily = gg.alert("💫 تـركـيـب مـــلـف المـهـام اليــومـيـة 💫","✅ تــركـيـب ✅",""," رجـــوع ↩️")
+	daily = gg.alert("⁉️ تـركـيـب مـــلـف المـهـام اليــومـيـة؟!.","✔ تــركـيـب ✔",""," رجـــوع ↩️")
 	if daily == 1 then
-		for i=1, #urls1 do
-	    getalldata= (gg.makeRequest(urls1[i]).content)
-		file = io.open(files1[i], "wb")
+		for i=1, #urls do
+	    getalldata= (gg.makeRequest(urls[i]).content)
+		file = io.open(files[i], "wb")
 		file:write(getalldata)
 		io.close(file)
 		end
-		gg.toast("✅ تـــم تــركـيـب المـــلـف بنــجــاح ✅")
+		gg.toast("✔ تـــم تــركـيـب المـــلـف بنــجــاح ✔")
 		-- انشاء ملف Stars_DailyQuest.txt
 		file = io.open(GameInfo.dataDir .. "/Resources/scripts/vip/Stars_DailyQuest.txt", "wb")
-		file:write("DailyQuest Done ✅")
+		file:write("DailyQuest Done ✔")
   	  file:close()
  	   close ()
     elseif daily == 2 then special_tasks() end
 else
-	daily = gg.alert("💫 لــقـد قــمــت بتــركـيـب المـــلـف بنــجــاح 💫","💥 تـفــعـيـل 💥","❎ إلــغــاء تــركـيـب ❎"," رجـــوع ↩️")
+	daily = gg.alert("💫 لــقـد قــمــت بتــركـيـب المـــلـف بنــجــاح 💫","💥 تـفــعـيـل 💥","✘ إلــغــاء تــركـيـب ✘"," رجـــوع ↩️")
 	if daily == 1 then
 		NOGOM("27000~27099E;1~2000E",64, "1~2000",500,"0",1,1,1,1)
 	elseif daily == 2 then
-		for i=1 ,#files1 do
-		os.remove(files1[i])
+		for i=1 ,#files do
+		os.remove(files[i])
 		end
-		gg.toast("✅ تـــم حـــذف المـــلـف بنــجــاح ✅")
+		gg.toast("✔ تـــم حـــذف المـــلـف بنــجــاح ✔")
         os.remove(GameInfo.dataDir .. "/Resources/scripts/vip/Stars_DailyQuest.txt") -- حذف الملف Stars_DailyQuest.txt
         close()
 	elseif daily == 3 then special_tasks() end
@@ -650,66 +620,72 @@ end
 end
 ----------------المشفي--------------------
 function hospital() gg.setVisible(false)
-urls2={'https://bit.ly/3WcbYdv'}
-files2={GameInfo.dataDir .. '/Resources/scripts/common/LuaMgr.lua'}
+	urls={'https://bit.ly/3WcbYdv'}
+	files={GameInfo.dataDir .. '/Resources/scripts/common/LuaMgr.lua'}
+if GameInfo.x64 == false then 
 if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_Hospital.txt") then
-    hosp = gg.alert("💫 تـركـيـب مـــلـف المـشـفـي 💫","✅ تــركـيـب ✅",""," رجـــوع ↩️")
+    hosp = gg.alert("⁉️ تـركـيـب مـــلـف المـشـفـي؟!.","✔ تــركـيـب ✔",""," رجـــوع ↩️")
     if hosp == 1 then 
-        for i=1, #urls2 do
-	    getalldata1= (gg.makeRequest(urls2[i]).content)
-		file = io.open(files2[i], "wb")
-		file:write(getalldata1)
+        for i=1, #urls do
+	    getalldata= (gg.makeRequest(urls[i]).content)
+		file = io.open(files[i], "wb")
+		file:write(getalldata)
 		io.close(file)
 		end
-        gg.toast("✅ تـــم تــركـيـب المـــلـف بنــجــاح ✅")
+        gg.toast("✔ تـــم تــركـيـب المـــلـف بنــجــاح ✔")
         -- إنشاء الملف stars_hospital.txt
         local file = io.open(GameInfo.dataDir .. "/Resources/scripts/vip/stars_Hospital.txt", "w")
-        file:write("Hospital Done ✅")
+        file:write("Hospital Done ✔")
         file:close()
         close()
     elseif hosp == 2 then special_tasks() end
 else
-    hosp = gg.alert("💫 لــقـد قــمــت بتــركـيـب المـــلـف بنــجــاح 💫","💥 تـفــعـيـل 💥","❎ إلــغــاء تــركـيـب ❎"," رجـــوع ↩️")
+    hosp = gg.alert("⁉️ لــقـد قــمــت بتــركـيـب المـــلـف بنــجــاح؟!.","💥 تـفــعـيـل 💥","✘ إلــغــاء تــركـيـب ✘"," رجـــوع ↩️")
     
     if hosp == 1 then 
         NOGOM('3E;49285D::13',64,'3',300,'4',1,1,1) 
     elseif hosp == 2 then 
-    	for i=1 ,#files2 do
-		os.remove(files2[i])
+    	for i=1 ,#files do
+		os.remove(files[i])
 		end
-		gg.toast("✅ تـــم حـــذف المـــلـف بنــجــاح ✅")
+		gg.toast("✔ تـــم حـــذف المـــلـف بنــجــاح ✔")
         os.remove(GameInfo.dataDir .. "/Resources/scripts/vip/stars_Hospital.txt") -- حذف الملف stars_hospital.txt
         close()
     elseif hosp == 3 then special_tasks() end
 end
+else
+req32 = gg.alert("‼️ هــذه التـفـعـيـلـة لا تــعمـل عــلي نـظــام 64BIT.\n يـجـب تـحـمـيـل نــظـام 32BIT أولاً.","✔ الـذهــاب إلـي مـتـجـر التـطـبـيـقـات ✔","","✘ إلــغــاء ✘")
+if req32 == 1 then appStore()
+else special_tasks() end
+end
 end
 -------------الغاء تحميل المصانع---------------
 function factories() gg.setVisible(false)
-	urls3={'https://bit.ly/49Rw8gj','https://bit.ly/3U7K4wR',}
-	files3={GameInfo.dataDir .. '/Resources/scripts/production_house/controller.lua',GameInfo.dataDir .. '/Resources/scripts/production_house/materialCell.lua',}
+	urls={'https://bit.ly/49Rw8gj','https://bit.ly/3U7K4wR',}
+	files={GameInfo.dataDir .. '/Resources/scripts/production_house/controller.lua',GameInfo.dataDir .. '/Resources/scripts/production_house/materialCell.lua',}
 if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_factories.txt") then
-    factory = gg.alert("💫 تـركـيـب مـــلـف إلغــاء تـحـمـيـل المــصانــع 💫","✅ تــركـيـب ✅",""," رجـــوع ↩️")
+    factory = gg.alert("⁉️ تـركـيـب مـــلـف إلغــاء تـحـمـيـل المــصانــع؟!.","✔ تــركـيـب ✔",""," رجـــوع ↩️")
     if factory == 1 then 
-        for i=1, #urls3 do
-	    getalldata2= (gg.makeRequest(urls3[i]).content)
-		file = io.open(files3[i], "wb")
-		file:write(getalldata2)
+        for i=1, #urls do
+	    getalldata= (gg.makeRequest(urls[i]).content)
+		file = io.open(files[i], "wb")
+		file:write(getalldata)
 		io.close(file)
 		end
-        gg.toast("✅ تـــم تــركـيـب المـــلـف بنــجــاح ✅")
+        gg.toast("✔ تـــم تــركـيـب المـــلـف بنــجــاح ✔")
         -- إنشاء الملف stars_factories.txt
         local file = io.open(GameInfo.dataDir .. "/Resources/scripts/vip/stars_factories.txt", "w")
-        file:write("Factories Done ✅")
+        file:write("Factories Done ✔")
         file:close()
         close()
     elseif factory == 2 then special_tasks() end
 else
-    factory = gg.alert("💫 لــقـد قــمــت بتــركـيـب المـــلـف بنــجــاح 💫","❎ إلــغــاء تــركـيـب ❎",""," رجـــوع ↩️")
+    factory = gg.alert("💫 لــقـد قــمــت بتــركـيـب المـــلـف بنــجــاح 💫","✘ إلــغــاء تــركـيـب ✘",""," رجـــوع ↩️")
     if factory == 1 then 
-    	for i=1 ,#files3 do
-		os.remove(files3[i])
+    	for i=1 ,#files do
+		os.remove(files[i])
 		end
-		gg.toast("✅ تـــم حـــذف المـــلـف بنــجــاح ✅")
+		gg.toast("✔ تـــم حـــذف المـــلـف بنــجــاح ✔")
         os.remove(GameInfo.dataDir .. "/Resources/scripts/vip/stars_factories.txt") -- حذف الملف stars_factories.txt
         close()
     elseif factory == 2 then special_tasks() end
@@ -720,7 +696,7 @@ end
     asd2 = "3;2"
     asd3 = "18;999999;20;999999"
 function buy() gg.setVisible(false)
-tc2p_ch = gg.choice (list_buy,nil,hh)
+tc2p_ch = gg.choice (list_buy,nil,header)
 if tc2p_ch == nil then ex(5)  end
 if tc2p_ch == 1 then action (fishes) end
 if tc2p_ch == 2 then action (special_p) end
@@ -742,7 +718,7 @@ function action ( arr )
 		end
 		table.sort(list)
 		table.insert(list, ' رجوع↩️ ')
-	    BE = gg.multiChoice(list, nil,hh) 
+	    BE = gg.multiChoice(list, nil,header) 
 	    ch_list={} 
 	     if BE == nil then
 	        ex(5)
@@ -805,7 +781,7 @@ end
 ------------------شراء بالكود----------------------
 function with_code() gg.setVisible(false)
  gg.alert(moqed) 
-coder=gg.prompt({"🔍ابحث بالكود🔎","🔍ابحث بالكود2🔎"},{'',''},{[1]='number'})
+coder=gg.prompt({"🔍ابحث بالكود🔎","??ابحث بالكود2🔎"},{'',''},{[1]='number'})
 if coder == nil then buy() end
 gg.setVisible(false)
 	  gg.searchNumber("18;3;20;2",gg.TYPE_DOUBLE,false,536870912,0,-1,0)
@@ -854,7 +830,7 @@ function REVERT_SEARCH(rev)
 end
 --------------------------------------------HOME_PALANtS(6)----------------------------------------------------------------------------------------------------------
 function plants() gg.setVisible(false)
-lib = gg.choice(cultivation,nil,hh)
+lib = gg.choice(cultivation,nil,header)
 if lib == nil then ex(6)end
 if lib==1  then NOGOM ('20026',4,nil,2000,'5101',1,nil,1,1) end
 if lib==2  then NOGOM ('20026',4,nil,2000,'5103',1,nil,1,1) end
@@ -895,7 +871,15 @@ function changeFarms() gg.setVisible(false)
 		end
 	function FF_Users()
 		  DataFetch()
-		  local MenueCh 
+        if not file_exists("/data/data/Current Farm.txt") then
+        headerL_C = "╔═❥❣✰════════════✬⋆✪⋆✬════════════✰❣❥═╗\n✿❣✰═══✬☞ƈᴜʀʀᴇɴᴛ ѕтαяѕ тєαм ʄᴀʀᴍ☜✬═══✰❣✿\n╚═❥❣✰═════════✬⋆ ELNGOME ⋆✬═════════✰❣❥═╝"
+        else
+        file = io.open("/data/data/Current Farm.txt", "r")
+     				   NameFH = file:read("*a")
+    				    file:close()
+        headerL_C = "╔═❥❣✰════════════✬⋆✪⋆✬════════════✰❣❥═╗\n✿❣✰═══✬☞ƈᴜʀʀᴇɴᴛ " .. NameFH .. " ʄᴀʀᴍ☜✬═══✰❣✿\n╚═❥❣✰═════════✬⋆ ELNGOME ⋆✬═════════✰❣❥═╝"
+        end
+		  local MenueCh
 		  MenueCh = gg.choice (list_change, nil, headerL_C)
 	    if MenueCh == nil then ex(7)else
 		if MenueCh == 1 then FileExport_p1() end
@@ -935,7 +919,7 @@ function changeFarms() gg.setVisible(false)
 				then
 				  str=io.open(Sorce,'r'):read('*a') 
 					io.open(Destination,'w'):write(str) 
-					gg.alert('✅ تــــم النـقــــل')
+					gg.alert('✔ تــــم النـقــــل')
 					UF:close()
 					return 'true'
 				else
@@ -1025,7 +1009,7 @@ function changeFarms() gg.setVisible(false)
 					 end
 				  end --EndElse2 
 		   end --EndIF 
-		local saveToPhone = gg.alert('⁉️ هـل تـريـد حـفـظ نـسـخــة مـــن اليـــوزر فــي ذاكــرة الــهـاتــف؟', 'نعــــــــــــم ✅', 'لا ❌')
+		local saveToPhone = gg.alert('⁉️ هـل تـريـد حـفـظ نـسـخــة مـــن اليـــوزر فــي ذاكــرة الــهـاتــف؟', 'نعــــــــــــم ✔', 'لا ❌')
   	  local savePath = ''  -- سيتم حفظ المسار الذي يختاره المستخدم هنا
     
    		 if saveToPhone == 1 then
@@ -1142,7 +1126,6 @@ end
 		function UsersMenu()
     local Menu = {}
     local MenueCh
-    local headerL_C = NameFH
     if next(Contents) == nil then
         gg.alert('🚫 لا توجد مزارع حالياً ..  ')
     else
@@ -1173,11 +1156,8 @@ end
                         FileTransfer(Srce, Destin)
                         -- إنشاء ملف يحتوي على اسم المستخدم الذي تم نقله
                         local currentFarm= io.open("/data/data/Current Farm.txt", "w")
-                        currentFarm:write("💫 " .. name .. " 💫")
+                        currentFarm:write("✨ " .. name .. " ✨")
                         currentFarm:close()
-                        local file = io.open("/data/data/Current Farm.txt", "r")
-                        NameFH = file:read("*a")
-                        file:close()
                         gg.alert('ســوف يــتــم اغـــــلاق اللــعـبـه الان ✖️⛔')
                         gg.processKill ()
                         break
@@ -1226,7 +1206,7 @@ end
                     UF:write(Menu[i], '\n')
                 end
                 UF:close()
-                gg.alert('✅ تـم الـحـــذف ...')
+                gg.alert('✔ تـم الـحـــذف ...')
             end
 
             if MenueCh[#Menu] == true then 
@@ -1336,12 +1316,12 @@ end -- END WHILE
 end -- END FUN
 -------------------------------------------HOME_VIP(9)--------------------------------------------------------------------------------------------------------------------
 function vip() gg.setVisible(false)
-vipMenu = gg.choice(list_vip,nil,hh)
+vipMenu = gg.choice(list_vip,nil,header)
 if vipMenu == nil then ex(10) end
 if vipMenu == 1 then koshk() end --الكشك
 if vipMenu == 2 then farmium() end --شراء قارورة بنفسجية
-if vipMenu == 3 then NOGOM('h666973685F6A756D705F706F776572',1,nil,10000,'0',1,nil,1,1) NOGOM('h666973685F7374616D696E615F67726F777468',1,nil,10000,'0',1,nil,1,1) NOGOM('h666973685F6C7631',1,nil,10000,'0',1,nil,1,1) NOGOM('h666973685F6C7632',1,nil,10000,'0',1,nil,1,1) end --تثبيت صنارة الصيد بالمنتصف
-if vipMenu == 4 then NOGOM('h6C696D69745F636F6E6669675F6E6577',1,nil,10000,'0',1,nil,1,1) end --فاعلية التلقائي
+if vipMenu == 3 then NOGOM('h 66 69 73 68 5F 6A 75 6D 70 5F 70 6F 77 65 72',1,nil,10000,'0',1,nil,1,1) NOGOM('h 66 69 73 68 5F 73 74 61 6D 69 6E 61 5F 67 72 6F 77 74 68',1,nil,10000,'0',1,nil,1,1) NOGOM('h 66 69 73 68 5F 6C 76 31',1,nil,10000,'h 66 69 73 68 5F 6C 76 33',1,nil,1,1) NOGOM('h 66 69 73 68 5F 6C 76 32',1,nil,10000,'h 66 69 73 68 5F 6C 76 33',1,nil,1,1) end --تثبيت صنارة الصيد بالمنتصف
+if vipMenu == 4 then NOGOM('h 6C 69 6D 69 74 5F 63 6F 6E 66 69 67 5F 6E 65 77',1,nil,10000,'0',1,nil,1,1) end --فاعلية التلقائي
 if vipMenu == 5 then NOGOM('500',64,nil,1000,'0',1,nil,1,1) NOGOM('1400',64,nil,1000,'0',1,nil,1,1) NOGOM('2500',64,nil,1000,'0',1,nil,1,1) NOGOM('2800',64,nil,1000,'0',1,nil,1,1) end --تخطي نقاط الجزيرة
 if vipMenu == 6 then NOGOM('75;90::5',64,'75',1000,'999999999',1,1,1,1) end --طاقة النافورة
 if vipMenu == 7 then HOME() end 
@@ -1352,36 +1332,36 @@ function koshk() gg.setVisible(false)
 gg.alert("")
 promp2 = gg.prompt({"✰ ادخل عدد المنتجات الذي اغلق الكشك عندها ✰"},{""},{"number"})
 if promp2 == nil then vip() end
-NOGOM (promp2[1],64,nil,17000,'-100',1,nil,1,1)
+NOGOM (promp2[1],64,nil,17000,'0',1,nil,1,1)
 end
 -------------شراء قارورة بنفسجية--------------
 function farmium() gg.setVisible(false)
-	urls_farmium = {"https://bit.ly/3xTXN2X",}
-	files_farmium = {GameInfo.dataDir .. "/Resources/settings_conf/skill/skill.json",}
+	urls = {"https://bit.ly/3xTXN2X",}
+	files = {GameInfo.dataDir .. "/Resources/settings_conf/skill/skill.json",}
 if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_farmium.txt") then
 
-    farmiu = gg.alert("💫 تـركـيـب مـــلـف شـــراء قــُارورة بـنـفـسـجـيـة 💫","✅ تــركـيـب ✅",""," رجـــوع ↩️")
+    farmiu = gg.alert("⁉️ تـركـيـب مـــلـف شـــراء قــُارورة بـنـفـسـجـيـة؟!.","✔ تــركـيـب ✔",""," رجـــوع ↩️")
     if farmiu == 1 then 
-        for i=1, #urls_farmium do
-	    getalldata4= (gg.makeRequest(urls_farmium[i]).content)
-		file = io.open(files_farmium[i], "wb")
-		file:write(getalldata4)
+        for i=1, #urls do
+	    getalldata= (gg.makeRequest(urls[i]).content)
+		file = io.open(files[i], "wb")
+		file:write(getalldata)
 		file:close()
 		end
-        gg.toast("✅ تـــم تــركـيـب المـــلـف بنــجــاح ✅")
+        gg.toast("✔ تـــم تــركـيـب المـــلـف بنــجــاح ✔")
         -- إنشاء الملف stars_farmium.txt
         local file = io.open(GameInfo.dataDir .. "/Resources/scripts/vip/stars_farmium.txt", "w")
-        file:write("Factories Done ✅")
+        file:write("Factories Done ✔")
         file:close()
         close()
     elseif farmiu == 2 then vip() end
 else
-    farmiu = gg.alert("💫 لــقـد قــمــت بتــركـيـب المـــلـف بنــجــاح 💫","❎ إلــغــاء تــركـيـب ❎",""," رجـــوع ↩️")
+    farmiu = gg.alert("💫 لــقـد قــمــت بتــركـيـب المـــلـف بنــجــاح 💫","✘ إلــغــاء تــركـيـب ✘",""," رجـــوع ↩️")
     if farmiu == 1 then 
-    	for i=1 ,#files_farmium do
-		os.remove(files_farmium[i])
+    	for i=1 ,#files do
+		os.remove(files[i])
 		end
-		gg.toast("✅ تـــم حـــذف المـــلـف بنــجــاح ✅")
+		gg.toast("✔ تـــم حـــذف المـــلـف بنــجــاح ✔")
         os.remove(GameInfo.dataDir .. "/Resources/scripts/vip/stars_farmium.txt") -- حذف الملف stars_farmium.txt
         close()
     elseif farmiu == 2 then vip() end
@@ -1432,7 +1412,7 @@ function sa_ad(ar1, ar2, nem)
 end
 function categories()
 	codes = gg.choice( generateItems(arr1, arr2,"✮🔍محرك البحث🔍✮"
-	) , nil,hh) 
+	) , nil,header) 
 	taken = ""
 	
 	if codes==nil then
@@ -1446,7 +1426,7 @@ function categories()
 end
 
 function categories_edit()
-   codes = gg.choice( generateItems(arr1, arr2,"✮⌨تعديل⌨✮") , nil,hh) 
+   codes = gg.choice( generateItems(arr1, arr2,"✮⌨تعديل⌨✮") , nil,header) 
 	taken_edit = ""
 	if codes==nil then
 	   HOME9() 
@@ -1456,12 +1436,12 @@ function categories_edit()
 	
 end
 function home()
-yellow_ak= gg.choice(Yellow_ak, nil,hh) 
+yellow_ak= gg.choice(Yellow_ak, nil,header) 
 end
 
 arr1 = {}
 arr2 = {}
-test = gg.choice(cod1 , nil,hh) 
+test = gg.choice(cod1 , nil,header) 
 if test==nil then HOME9() end
 if test == 1 then  end
 if test == 2 then fa=Fa sa_ad(fa_1, fa_2, fa) categories()end
@@ -1516,7 +1496,7 @@ end
 
 if ref ==1 then gg.refineNumber(search_refine[1] ,search_code,false,536870912,0,-1,0) end
 local res = gg.getResults(gg.getResultsCount(), nil, nil, nil, nil, nil, nil, nil, nil)
-test = gg.choice( cod , nil,hh) 
+test = gg.choice( cod , nil,header) 
 if test==nil then help_menu_2() end
 if test == 1 then  end
 if test == 2 then fa=Fa sa_ad(fa_1, fa_2, fa) categories_edit()end
@@ -1550,7 +1530,7 @@ gg.toast("✰تم التعديل✰")end
 	THSH = -1
 	gg.skipRestoreState()
 	gg.setVisible(false)
-	gg.toast("تٌــــــــــ ✰فُريَّّقُ هِّکَْر آلََنٌِجَّوٌُمًِـ✰ ــــــــــمً")
+	gg.toast("💚 لا تـنـســي الصـــلاة عـــلـي خــيــر الـــوَرَى ﷺ 💚")
     while true do
 	    if gg.isVisible(true) then
 		    THSH = 1
@@ -1575,33 +1555,43 @@ gg.toast("✰تم التعديل✰")end
 	 end
 end
 -------------------------------
-function Exit()
-gg.setVisible(false)  
-print("__________u$$$$$$$$$$$$$$$$$$$u__________")
-print("_________u$$$$$$$$$$$$$$$$$$$$$u_________")
-print("_______u$$$$$$$$$$$$$$$$$$$$$$$$u_______")
-print("_______u$$$$$$$$$$$$$$$$$$$$$$$$u_______")
-print("_______u$$$$$$”___”$$$”___”$$$$$$u________")
-print("_______”$$$$”______u$u_______$$$$”________")
-print("________$$$u______u$$$u______u$$$________")
-print("_________”$$$$uu$$$___$$$uu$$$$”_________")
-print("__________”$$$$$$$”___”$$$$$$$”__________")
-print("____________u$$$$$$$u$$$$$$$u____________")
-print("_____________u$”$”$”$”$”$”$u______________")
-print("__uuu________$$u$_$_$_$_$u$$_______uuu__")
-print("_u$$$$________$$$$$u$u$u$$$_______u$$$$_")
-print("__$$$$$uu______”$$$$$$$$$”_____uu$$$$$$__")
-print("u$$$$$$$$$$$uu____”””””____uuuu$$$$$$$$$$")
-print("$$$$”””$$$$$$$$$$uuu___uu$$$$$$$$$”””$$$”")
-print("_”””______””$$$$$$$$$$$uu_””$”””___________")
-print("___________uuuu_””$$$$$$$$$$uuu___________")
-print("__u$$$uuu$$$$$$$$$uu_””$$$$$$$$$$$uuu$$$__")
-print("__$$$$$$$$$$””””___________””$$$$$$$$$$$”__")
-print("___”$$$$$”______________________””$$$$””__")
- gg.skipRestoreState()
+function Exit() gg.setVisible(false)
+	files = {GameInfo.dataDir .. "/Resources/scripts/common/game/syncErrorRumEvent.lua",}
+if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_anti.txt") then exit()
+else
+fileG = gg.alert("⁉️ هــل تـريـد حــذف مــلف عــدم فـصـل اللـعـبـة قـبـل الخــروج؟!.","✔ حــــــذف ✔","","✘ لا ✘")
+if fileG == nil then exit()
+elseif fileG == 1 then
+		for i=1 ,#files do
+		os.remove(files[i])
+		end
+		gg.toast("✔ تـــم حـــذف المـــلـف بنــجــاح ✔")
+        os.remove(GameInfo.dataDir .. "/Resources/scripts/vip/stars_anti.txt")
+        exit()
+else exit()
+end
+end
+end
+function exit() gg.setVisible(false)
+print("end")
+gg.skipRestoreState()
   gg.toast("End")
   os.exit()
   end
+------------------------------------Processes---------------------------------------------------------------
+	--دالة البحث والتعديل
+function NOGOM(search,type,refine,results,edit,S,R,E,C) gg.setVisible(false)
+	srch = tostring (search)
+    rfn = tostring (refine)          
+    edt = tostring (edit)
+	if S == 1 then gg.searchNumber(srch , type, false, 536870912, 0, -1, 0) end
+	if R ==1 then gg.refineNumber(rfn ,type,false,536870912,0,-1,0) end
+    local foundResults = gg.getResults(results, nil, nil, nil, nil, nil, nil, nil, nil)
+    if #foundResults == 0 then gg.alert(search_again) return end
+	if E == 1 then gg.editAll(edt, type) end
+	if C == 1 then gg.clearResults() end
+	gg.toast("تٌــــــــــ ✰فُريَّّقُ هِّکَْر آلََنٌِجَّوٌُمًِـ✰ ــــــــــمً") gg.sleep(300)
+end
   -- دالة تأكيد الاغلاق
 function close ()
 		local choice
@@ -1621,15 +1611,59 @@ function file_exists(name)
     local f=io.open(name,"r")
     if f~=nil then io.close(f) return true else return false end
 end
+-- تركيب ملف عدم الفصل
+function checkAnti()
+if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_anti.txt") then 
+fileG = gg.alert("⁉️ تــركـيـب مــلـف عــدم فــصـل اللـعـبـة آثـنـاء اسـتـخـدام تـفـعـيـلات المــلـف؟!.","✔ تــركـيـب ✔","","✘ لا ✘")
+ urls = {"https://bit.ly/4bkljUX",}
+ files = {GameInfo.dataDir .. "/Resources/scripts/common/game/syncErrorRumEvent.lua",}
+if fileG == 2 then HOME()
+elseif fileG == 1 then
+		for i=1, #urls do
+	    getalldata = (gg.makeRequest(urls[i]).content)
+		file = io.open(files[i], "wb")
+		file:write(getalldata)
+		file:close()
+		end
+        gg.toast("✔ تـــم تــركـيـب المـــلـف بنــجــاح ✔")
+        local file = io.open(GameInfo.dataDir .. "/Resources/scripts/vip/stars_anti.txt", "w")
+        file:write("Anti Done ✔")
+        file:close()
+        close()
+else
+		HOME()
+end
+else
+		HOME()
+end
+end
 
-while true do
-  if gg.isVisible(true) then
-    THSH = 1
-    gg.setVisible(false)
-  end
-  gg.clearResults()
-  if THSH == 1 then
-    HOME()
- end
- end
+function checkVPN(response)
+    -- يمكنك تحديد المؤشرات أو العناصر في الاستجابة التي تشير إلى استخدام VPN
+    local indicators = {'I/O', 'javax', 'java.io',}
+    for _, indicator in ipairs(indicators) do
+        if string.find(response, indicator) then
+            return true -- تشير هذه المؤشرات إلى استخدام VPN
+        end
+    end
+    return false -- لا تشير المؤشرات إلى استخدام VPN
+end
+
+function blockVPN()
+    local VPN_url = 'https://vpn.uibe.edu.cn/por/phone_index.csp?rnd=0.23178949332658605#https%3A%2F%2Fvpn.uibe.edu.cn%2F'
+    local requestResult = tostring(gg.makeRequest(VPN_url))
+    if requestResult == 'The user did not allow access to the Internet.' then
+        os.exit()
+    else
+        if checkVPN(requestResult) then
+            gg.alert("الرجاء إغلاق VPN وإعادة تشغيل البرنامج.")
+            os.exit()
+        else
+            password()
+        end
+    end
+end
 -- END SCRIPT --
+blockVPN()
+check()
+checkAnti()
