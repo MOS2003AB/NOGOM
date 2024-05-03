@@ -1559,12 +1559,12 @@ function blockVPN()
             gg.alert("الرجاء إغلاق VPN وإعادة تشغيل البرنامج.")
             os.exit()
         else
-            check()
+            password()
         end
     end
 end
 -- دالة التحقق من النسخة المشغلة
-function check()
+function check() password()
 if currentPackage ~= "com.elngome" then
 local packageName = "com.elngome"
 local isPackageInstalled = gg.isPackageInstalled(packageName)
@@ -1629,7 +1629,6 @@ else print(RDown) os.exit() end
 end
 end
 end
-password()
 end
 -- دالة البداية والدخول
 function password()
