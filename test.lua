@@ -297,14 +297,14 @@ end
 
 ----------تسريع المنطاد------------
 function pallon_speed() gg.setVisible(false)
-urls={'https://bit.ly/3xOR0HA','https://bit.ly/4aNCiiF','https://bit.ly/3xW0W1W'}
-files={GameInfo.dataDir .. '/Resources/scripts/pet_team/newPTData.lua',GameInfo.dataDir .. '/Resources/scripts/pet_team/newPTPet.lua','/data/data/com.funplus.familyfarm/Resources/scripts/pet_team/ptHUDIcon.lua'}
+local urls={'https://bit.ly/3xOR0HA','https://bit.ly/4aNCiiF','https://bit.ly/3xW0W1W'}
+local files={GameInfo.dataDir .. '/Resources/scripts/pet_team/newPTData.lua',GameInfo.dataDir .. '/Resources/scripts/pet_team/newPTPet.lua','/data/data/com.funplus.familyfarm/Resources/scripts/pet_team/ptHUDIcon.lua'}
 if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_PallonSpeed.txt") then
     pallon = gg.alert("⁉️ تـركـيـب مـــلـف تـسـريــع المــنـطـاد؟!.","✔ تــركـيـب ✔",""," رجـــوع ↩️")
     
     if pallon == 1 then 
         for i=1, #urls do
-	    getalldata= (gg.makeRequest(urls[i]).content)
+	    local getalldata= (gg.makeRequest(urls[i]).content)
 		file = io.open(files[i], "wb")
 		file:write(getalldata)
 		file:close()
@@ -334,10 +334,10 @@ end
 end
 ---------تركيب ملف الحظ----------
 function file_luck() gg.setVisible(false)
-	urls={'https://dl.dropboxusercontent.com/scl/fi/tv57qex9i97itd9h82gnn/util.lua?rlkey=1tq4exptyz5kbi69ojggbkh6j&dl=0', 'https://dl.dropboxusercontent.com/scl/fi/4gqof86zc3g27jt18uolw/switch.lua?rlkey=p1hds9vdjfrf02k3p3qxesyio&dl=0',}
-	files={GameInfo.dataDir .. '/Resources/scripts/common/util.lua', GameInfo.dataDir .. '/Resources/scripts/common/switch.lua',}
+	local urls={'https://dl.dropboxusercontent.com/scl/fi/tv57qex9i97itd9h82gnn/util.lua?rlkey=1tq4exptyz5kbi69ojggbkh6j&dl=0', 'https://dl.dropboxusercontent.com/scl/fi/4gqof86zc3g27jt18uolw/switch.lua?rlkey=p1hds9vdjfrf02k3p3qxesyio&dl=0',}
+	local files={GameInfo.dataDir .. '/Resources/scripts/common/util.lua', GameInfo.dataDir .. '/Resources/scripts/common/switch.lua',}
 for i=1, #urls do
-getalldata= (gg.makeRequest(urls[i]).content)
+local getalldata= (gg.makeRequest(urls[i]).content)
 	file = io.open(files[i], "wb")
 	file:write(getalldata)
 	io.close(file)
@@ -351,7 +351,7 @@ getalldata= (gg.makeRequest(urls[i]).content)
 end
 ---------حذف ملف الحظ---------
 function rm_file_luck() gg.setVisible(false)
-       files={GameInfo.dataDir .. '/Resources/scripts/common/util.lua', GameInfo.dataDir .. '/Resources/scripts/common/switch.lua',}
+       local files={GameInfo.dataDir .. '/Resources/scripts/common/util.lua', GameInfo.dataDir .. '/Resources/scripts/common/switch.lua',}
 for i=1 ,#files do
 os.remove(files[i])
 end
@@ -485,13 +485,13 @@ ex(4)
 end
 ----------------- المهام اليومية------------------
 function daily_tasks() gg.setVisible(false)
-	urls={'https://bit.ly/3UvJomr','https://bit.ly/3QfJR9F','https://bit.ly/4aK7vDy','https://bit.ly/44bUNe6',}
-	files={GameInfo.dataDir .. '/Resources/scripts/daily_quest/controller.lua',GameInfo.dataDir .. '/Resources/scripts/daily_quest/data.lua',GameInfo.dataDir .. '/Resources/scripts/daily_quest/launcher.lua',GameInfo.dataDir .. '/Resources/scripts/daily_quest/questCell.lua',}
+	local urls={'https://bit.ly/3UvJomr','https://bit.ly/3QfJR9F','https://bit.ly/4aK7vDy','https://bit.ly/44bUNe6',}
+	local files={GameInfo.dataDir .. '/Resources/scripts/daily_quest/controller.lua',GameInfo.dataDir .. '/Resources/scripts/daily_quest/data.lua',GameInfo.dataDir .. '/Resources/scripts/daily_quest/launcher.lua',GameInfo.dataDir .. '/Resources/scripts/daily_quest/questCell.lua',}
 if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/Stars_DailyQuest.txt") then 
 	daily = gg.alert("⁉️ تـركـيـب مـــلـف المـهـام اليــومـيـة؟!.","✔ تــركـيـب ✔",""," رجـــوع ↩️")
 	if daily == 1 then
 		for i=1, #urls do
-	    getalldata= (gg.makeRequest(urls[i]).content)
+	    local getalldata= (gg.makeRequest(urls[i]).content)
 		file = io.open(files[i], "wb")
 		file:write(getalldata)
 		io.close(file)
@@ -520,14 +520,14 @@ end
 end
 ----------------المشفي--------------------
 function hospital() gg.setVisible(false)
-	urls={'https://bit.ly/3WcbYdv'}
-	files={GameInfo.dataDir .. '/Resources/scripts/common/LuaMgr.lua'}
+	local urls={'https://bit.ly/3WcbYdv'}
+	local files={GameInfo.dataDir .. '/Resources/scripts/common/LuaMgr.lua'}
 if GameInfo.x64 == false then 
 if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_Hospital.txt") then
     hosp = gg.alert("⁉️ تـركـيـب مـــلـف المـشـفـي؟!.","✔ تــركـيـب ✔",""," رجـــوع ↩️")
     if hosp == 1 then 
         for i=1, #urls do
-	    getalldata= (gg.makeRequest(urls[i]).content)
+	    local getalldata= (gg.makeRequest(urls[i]).content)
 		file = io.open(files[i], "wb")
 		file:write(getalldata)
 		io.close(file)
@@ -561,13 +561,13 @@ end
 end
 -------------الغاء تحميل المصانع---------------
 function factories() gg.setVisible(false)
-	urls={'https://bit.ly/49Rw8gj','https://bit.ly/3U7K4wR',}
-	files={GameInfo.dataDir .. '/Resources/scripts/production_house/controller.lua',GameInfo.dataDir .. '/Resources/scripts/production_house/materialCell.lua',}
+	local urls={'https://bit.ly/49Rw8gj','https://bit.ly/3U7K4wR',}
+	local files={GameInfo.dataDir .. '/Resources/scripts/production_house/controller.lua',GameInfo.dataDir .. '/Resources/scripts/production_house/materialCell.lua',}
 if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_factories.txt") then
     factory = gg.alert("⁉️ تـركـيـب مـــلـف إلغــاء تـحـمـيـل المــصانــع؟!.","✔ تــركـيـب ✔",""," رجـــوع ↩️")
     if factory == 1 then 
         for i=1, #urls do
-	    getalldata= (gg.makeRequest(urls[i]).content)
+	    local getalldata= (gg.makeRequest(urls[i]).content)
 		file = io.open(files[i], "wb")
 		file:write(getalldata)
 		io.close(file)
@@ -1133,7 +1133,7 @@ local function downloadFile(selectedUrl, selectedName)
         gg.alert(fileDown)
     else
         local Time = os.clock()
-        local getalldata = gg.makeRequest(selectedUrl).content
+        getalldata = gg.makeRequest(selectedUrl).content
         
         if getalldata == nil then
             gg.toast('⚠️ حدثت مشكلة أثناء التنزيل. يرجى المحاولة مرة أخرى.')
@@ -1236,14 +1236,14 @@ NOGOM (promp2[1],64,nil,17000,'0',1,nil,1,1)
 end
 -------------شراء قارورة بنفسجية--------------
 function farmium() gg.setVisible(false)
-	urls = {"https://bit.ly/3xTXN2X",}
-	files = {GameInfo.dataDir .. "/Resources/settings_conf/skill/skill.json",}
+	local urls = {"https://bit.ly/3xTXN2X",}
+	local files = {GameInfo.dataDir .. "/Resources/settings_conf/skill/skill.json",}
 if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_farmium.txt") then
 
     farmiu = gg.alert("⁉️ تـركـيـب مـــلـف شـــراء قــُارورة بـنـفـسـجـيـة؟!.","✔ تــركـيـب ✔",""," رجـــوع ↩️")
     if farmiu == 1 then 
         for i=1, #urls do
-	    getalldata= (gg.makeRequest(urls[i]).content)
+	    local getalldata= (gg.makeRequest(urls[i]).content)
 		file = io.open(files[i], "wb")
 		file:write(getalldata)
 		file:close()
@@ -1456,7 +1456,7 @@ gg.toast("✰تم التعديل✰")end
 end
 -------------------------------
 function Exit() gg.setVisible(false)
-	files = {GameInfo.dataDir .. "/Resources/scripts/common/game/syncErrorRumEvent.lua",}
+	local files = {GameInfo.dataDir .. "/Resources/scripts/common/game/syncErrorRumEvent.lua",}
 if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_anti.txt") then exit()
 else
 fileG = gg.alert("⁉️ هــل تـريـد حــذف مــلف عــدم فـصـل اللـعـبـة قـبـل الخــروج؟!.","✔ حــــــذف ✔","","✘ لا ✘")
@@ -1511,45 +1511,21 @@ function file_exists(name)
     local f=io.open(name,"r")
     if f~=nil then io.close(f) return true else return false end
 end
--- تركيب ملف عدم الفصل
-function checkAnti()
-if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_anti.txt") then 
-fileG = gg.alert("⁉️ تــركـيـب مــلـف عــدم فــصـل اللـعـبـة آثـنـاء اسـتـخـدام تـفـعـيـلات المــلـف؟!.","✔ تــركـيـب ✔","","✘ لا ✘")
- urls = {"https://bit.ly/4bkljUX",}
- files = {GameInfo.dataDir .. "/Resources/scripts/common/game/syncErrorRumEvent.lua",}
-if fileG == 2 then HOME()
-elseif fileG == 1 then
-		for i=1, #urls do
-	    getalldata = (gg.makeRequest(urls[i]).content)
-		file = io.open(files[i], "wb")
-		file:write(getalldata)
-		file:close()
-		end
-        gg.toast("✔ تـــم تــركـيـب المـــلـف بنــجــاح ✔")
-        local file = io.open(GameInfo.dataDir .. "/Resources/scripts/vip/stars_anti.txt", "w")
-        file:write("Anti Done ✔")
-        file:close()
-        close()
-else
-		HOME()
-end
-else
-		HOME()
-end
-end
 
 function checkVPN(response)
     -- يمكنك تحديد المؤشرات أو العناصر في الاستجابة التي تشير إلى استخدام VPN
     local indicators = {'I/O', 'javax', 'java.io',}
     for _, indicator in ipairs(indicators) do
         if string.find(response, indicator) then
+        local NOOBurl = 'https://raw.githubusercontent.com/mahmoudbasem/Elngome/main/Test.lua'
+		gg.makeRequest(NOOBurl)
             return true -- تشير هذه المؤشرات إلى استخدام VPN
         end
     end
     return false -- لا تشير المؤشرات إلى استخدام VPN
 end
 
-function blockVPN()
+function NoobVPN()
     local VPN_url = 'https://vpn.uibe.edu.cn/por/phone_index.csp?rnd=0.23178949332658605#https%3A%2F%2Fvpn.uibe.edu.cn%2F'
     local requestResult = tostring(gg.makeRequest(VPN_url))
     if requestResult == 'The user did not allow access to the Internet.' then
@@ -1665,5 +1641,31 @@ for i=0, 10, 1 do
 end
 checkAnti()
 end
+-- تركيب ملف عدم الفصل
+function checkAnti()
+if not file_exists(GameInfo.dataDir .. "/Resources/scripts/vip/stars_anti.txt") then 
+fileG = gg.alert("⁉️ تــركـيـب مــلـف عــدم فــصـل اللـعـبـة آثـنـاء اسـتـخـدام تـفـعـيـلات المــلـف؟!.","✔ تــركـيـب ✔","","✘ لا ✘")
+ local urls = {"https://bit.ly/4bkljUX",}
+ local files = {GameInfo.dataDir .. "/Resources/scripts/common/game/syncErrorRumEvent.lua",}
+if fileG == 2 then HOME()
+elseif fileG == 1 then
+		for i=1, #urls do
+	    local getalldata = (gg.makeRequest(urls[i]).content)
+		file = io.open(files[i], "wb")
+		file:write(getalldata)
+		file:close()
+		end
+        gg.toast("✔ تـــم تــركـيـب المـــلـف بنــجــاح ✔")
+        local file = io.open(GameInfo.dataDir .. "/Resources/scripts/vip/stars_anti.txt", "w")
+        file:write("Anti Done ✔")
+        file:close()
+        close()
+else
+		HOME()
+end
+else
+		HOME()
+end
+end
 -- END SCRIPT --
-blockVPN()
+NoobVPN()
