@@ -1,3 +1,12 @@
+function blockIncompatibleVersions()
+	if gg.PACKAGE ~= 'com.CrazyHacker' or gg.VERSION_INT ~= '10101' then
+		gg.alert('استخدم الجيم جاردن الخاص بالشات ياض😒')
+		gg.copyText('https://www.mediafire.com/file/nfewlj0acxp8802/Crazy_Hacker.GG32.apk/file')
+		gg.toast('تم نسخ رابط الجيم روح حمله يلا بسرعه 😒')
+		print('تم نسخ رابط الجيم روح حمله يلا بسرعه 😒')
+		os.exit()
+	end
+end
 
 function start ()
 	os.remove ('Script.lua')
@@ -1604,6 +1613,7 @@ function isCorrectFile_exist (back)
 end
 
 main_maruko ()
+blockIncompatibleVersions()
 Variable ()
 start ()
-HOME ()
+HOME (
